@@ -1,0 +1,21 @@
+{
+    "data" : [
+        {
+            "id"            :   "1",
+            "customer"      :   "Josué Lopês",
+            "plate"         :   "AAAA-AAA",
+            "model"         :   "FOX",
+            "color"         :   "vermelho",
+            "entrance"      :   { 
+                "date" : "00/00/00", 
+                "time" : "00:00" 
+            },
+            "exit"          :   { 
+                "date" : "00/00/00", 
+                "time" : "00:00" 
+            },
+            "parking_spot"  :   "3A",
+            "price"         :   50
+        }
+    ]
+}
