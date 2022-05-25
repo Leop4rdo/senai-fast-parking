@@ -2,7 +2,10 @@
     "data" : [
         {
             "id"            :   "1",
-            "customer"      :   "Josué Lopês",
+            "customer"      :   { 
+                "name"  :   "Josué Lopês",
+                "email" :   "josue.lopes@gmail.com"
+            }
             "plate"         :   "AAAA-AAA",
             "model"         :   "FOX",
             "color"         :   "vermelho",
