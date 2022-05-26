@@ -44,18 +44,58 @@ CREATE TABLE parking_spot (
     name VARCHAR(10) NOT NULL,
     vehicle_type_id INT UNSIGNED NOT NULL,
     
-    CONSTRAINT FK_vehicle_type_id 
+    CONSTRAINT FK_parking_spot__vehicle_type_id 
     FOREIGN KEY (vehicle_type_id) 
     REFERENCES vehicle_type(id)
 );
 
-# VEHICLE IN OUT ->
-
 # VEHICLE ->
+CREATE TABLE vehicle (
+	id INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE,
+    plate VARCHAR(10),
+    vehicle_colour_id INT UNSIGNED NOT NULL,
+    vehicle_type_id INT UNSIGNED NOT NULL,
+    vehicle_model_id INT UNSIGNED NOT NULL,
+    customer_id INT UNSIGNED NOT NULL,
+	
+    CONSTRAINT FK_vehicle__vehicle_colour_id
+    FOREIGN KEY (vehicle_colour_id)
+    REFERENCES vehicle_colour(id),
+    
+    CONSTRAINT FK_vehicle__vehicle_model_id
+    FOREIGN KEY (vehicle_model_id)
+    REFERENCES vehicle_model(id),
+    
+    CONSTRAINT FK_vehicle__vehicle_type_id
+    FOREIGN KEY (vehicle_type_id)
+    REFERENCES vehicle_type(id),
+    
+    CONSTRAINT FK_vehicle__customer_id
+    FOREIGN KEY (customer_id)
+    REFERENCES customer(id)
+);
+
+# VEHICLE_IN_OUT ->
+CREATE TABLE vehicle_in_out (
+	id INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE,
+    total_price DOUBLE UNSIGNED,
+    entrance_time DATETIME NOT NULL,
+    exit_time DATETIME,
+    vehicle_id INT UNSIGNED NOT NULL,
+    parking_spot_id INT UNSIGNED NOT NULL,
+    
+    CONSTRAINT FK_vehicle_in_out__vehicle_id
+    FOREIGN KEY (vehicle_id)
+    REFERENCES vehicle(id),
+    
+    CONSTRAINT FK_vehicle_int_out__parking_spot_id
+    FOREIGN KEY (parking_spot_id)
+    REFERENCES parking_spot(id)
+);
 
 # UTIL CODE ->
 show tables;
-DESC vehicle_type;
+DESC vehicle_in_out;
 
 
 
