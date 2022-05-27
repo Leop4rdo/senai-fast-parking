@@ -25,8 +25,8 @@ class CustomerRepository {
         return $res;
     }
 
-    function find($search_param, $value) {
-        $query = "SELECT * FROM customer where $search_param = $value";
+    function find($param, $value) {
+        $query = "SELECT * FROM customer where $param = $value";
 
         $queryRes = $this->db->query($query);
 
@@ -48,6 +48,16 @@ class CustomerRepository {
                         '". $body["phone_number"] ."',
                         '". $body["password"] ."')";
         
+        $this->db->query($query);
+
+        if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
+
+        return array("message" => "successfully created customer", "status" => 200); 
+    }
+
+    function delete($id) {
+        $query = "DELETE FROM customer WHERE id = $id";
+
         $this->db->query($query);
 
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);

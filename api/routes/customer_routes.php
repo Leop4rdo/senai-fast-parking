@@ -28,5 +28,11 @@ $app->post($base_endpoint,  function (Request $request, Response $response, arra
     return $controller->create($request, $response, $args);
 });
 
+$app->delete($base_endpoint . "/{id}", function (Request $request, Response $response, array $args) {
+    $controller = new CustomerController();
+
+    return $controller->delete($request, $response, $args);
+});
+
 
 $app->run();

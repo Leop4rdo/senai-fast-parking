@@ -18,7 +18,6 @@ class CustomerController {
         return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
-
     }
 
     function getById(Request $request, Response $response, array $args) {
@@ -27,7 +26,6 @@ class CustomerController {
         return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
-                
     }
 
     function create(Request $request, Response $response, array $args) {
@@ -38,6 +36,13 @@ class CustomerController {
         return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
+    }
 
+    function delete(Request $request, Response $response, array $args) {
+        $resData = (array) $this->service->create($args["id"]);
+
+        return $response->withStatus($resData['status'])
+                ->withHeader("Content-Type", "application/json")
+                ->write(json_encode($resData));
     }
 }
