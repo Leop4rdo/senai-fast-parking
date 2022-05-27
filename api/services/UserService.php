@@ -55,6 +55,10 @@ class CustomerService {
     function delete($id) {
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
 
+        $customer = $this->repository->find("id", $id);
+        // if customer does not exists
+        if (count($customer) === 0) return array("message" => "data not found!", "status" => 404);
+
         $res = $this->repository->delete($id);
 
         return array("message" => $res["message"], "status" => $res["status"]);

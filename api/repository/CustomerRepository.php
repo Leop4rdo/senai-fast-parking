@@ -58,10 +58,10 @@ class CustomerRepository {
     function delete($id) {
         $query = "DELETE FROM customer WHERE id = $id";
 
-        $this->db->query($query);
+        $queryRes =$this->db->query($query);
 
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
 
-        return array("message" => "successfully created customer", "status" => 200); 
+        return array("message" => "successfully deleted customer", "status" => 200); 
     }
 }

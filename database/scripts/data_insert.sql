@@ -1,3 +1,4 @@
+
 /********************************************************\
 	fastparking project database data insert script
     
@@ -6,7 +7,11 @@
     creation  :  27/05/22
 \********************************************************/
 
+use db_fastparking;
+
 # CUSTOMER ->
+
+
 INSERT INTO customer (
 					  name,
                       email,

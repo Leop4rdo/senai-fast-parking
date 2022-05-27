@@ -39,7 +39,7 @@ class CustomerController {
     }
 
     function delete(Request $request, Response $response, array $args) {
-        $resData = (array) $this->service->create($args["id"]);
+        $resData = (array) $this->service->delete($args["id"]);
 
         return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
