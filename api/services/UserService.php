@@ -51,4 +51,12 @@ class CustomerService {
 
         return array("message" => $res["message"], "status" => $res["status"]);
     }
+
+    function delete($id) {
+        if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
+
+        $res = $this->repository->delete($id);
+
+        return array("message" => $res["message"], "status" => $res["status"]);
+    }
 }

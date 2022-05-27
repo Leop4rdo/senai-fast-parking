@@ -15,21 +15,17 @@ class CustomerController {
     function getAll(Request $request, Response $response, array $args) {
         $resData = (array) $this->service->list();
 
-        $response->withStatus($resData['status'])
+        return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
-
-        return $response;
     }
 
     function getById(Request $request, Response $response, array $args) {
         $resData = (array) $this->service->find($args["id"]);
 
-        $response->withStatus($resData['status'])
+        return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
-
-        return $response;
     }
 
     function create(Request $request, Response $response, array $args) {
@@ -37,10 +33,16 @@ class CustomerController {
 
         $resData = (array) $this->service->create($body);
 
-        $response->withStatus($resData['status'])
+        return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
+    }
 
-        return $response;
+    function delete(Request $request, Response $response, array $args) {
+        $resData = (array) $this->service->create($args["id"]);
+
+        return $response->withStatus($resData['status'])
+                ->withHeader("Content-Type", "application/json")
+                ->write(json_encode($resData));
     }
 }
