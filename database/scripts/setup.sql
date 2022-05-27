@@ -19,6 +19,9 @@ CREATE TABLE customer (
     password VARCHAR(32)
 );
 
+ALTER TABLE customer 
+	MODIFY email VARCHAR(320) NOT NULL UNIQUE;
+
 # VEHICLE COLOUR ->
 CREATE TABLE IF NOT EXISTS vehicle_colour (
 	id INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,
@@ -95,8 +98,8 @@ CREATE TABLE vehicle_in_out (
 
 # UTIL CODE ->
 show tables;
-DESC customer;
-select * from customer;
+DESC parking_spot;
+select * from parking_spot;
 
 
 
