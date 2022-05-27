@@ -1,3 +1,5 @@
+use db_fastparking;
+
 INSERT INTO customer (
 					  name,
                       email,
