@@ -38,4 +38,8 @@ class VehicleTypeRepository {
 
         return $res;
     } 
+
+    function updateValue($param, $value, $id) {
+        # TODO: everything;
+    }
 }

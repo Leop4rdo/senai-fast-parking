@@ -3,6 +3,8 @@
 use Slim\http\Response;
 use Slim\http\Request;
 
+require_once "services/VehicleTypeService.php";
+
 class VehicleTypeController {
     private $service;
 
@@ -25,4 +27,14 @@ class VehicleTypeController {
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
     }    
+
+    function updatePrice (Request $request, Response $response, array $args) {
+        $body = $request->getParsedBody();
+
+        $resData = (array) $this->service->updatePrice($body, $args["id"]);
+
+        return $response->withStatus($resData['status'])
+                ->withHeader("Content-Type", "application/json")
+                ->write(json_encode($resData));
+    }
 }
