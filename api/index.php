@@ -20,6 +20,7 @@ require_once "vendor/autoload.php";
 $app = new App();
 
 // LOADING ROUTES :
+require_once "routes/vehicle_model_routes.php"; // vehicle model routes
 require_once "routes/customer_routes.php"; // customer routes
 require_once "routes/vehicle_type_routes.php";
 
