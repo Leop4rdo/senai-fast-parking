@@ -1,24 +1,23 @@
 <?php
 /***********************************************\
  * 
- *  Controller layer for vehicle types
+ *  Controller layer for parking spots
  * 
- *  author : Leonardo Antunes
+ *  Author : Leonardo antunes
  *  version : 1.0
  * 
 \***********************************************/
 
+use Slim\Http\Request;
+use Slim\Http\Response;
 
-use Slim\http\Response;
-use Slim\http\Request;
+require_once "services/ParkingSpotService.php";
 
-require_once "services/VehicleTypeService.php";
-
-class VehicleTypeController {
+class ParkingSpotController {
     private $service;
 
     function __construct() {
-        $this->service = new VehicleTypeService();
+        $this->service = new ParkingSpotService();
     }
 
     function getAll(Request $request, Response $response, array $args) {
@@ -29,21 +28,31 @@ class VehicleTypeController {
                 ->write(json_encode($resData));
     }
 
+    /*
     function getById(Request $request, Response $response, array $args) {
         $resData = (array) $this->service->find($args["id"]);
 
         return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
-    }    
+    }
 
-    function updatePrice (Request $request, Response $response, array $args) {
+    function create(Request $request, Response $response, array $args) {
         $body = $request->getParsedBody();
 
-        $resData = (array) $this->service->updatePrice($body, $args["id"]);
+        $resData = (array) $this->service->create($body);
 
         return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
     }
+
+    function delete(Request $request, Response $response, array $args) {
+        $resData = (array) $this->service->delete($args["id"]);
+
+        return $response->withStatus($resData['status'])
+                ->withHeader("Content-Type", "application/json")
+                ->write(json_encode($resData));
+    }
+    */
 }

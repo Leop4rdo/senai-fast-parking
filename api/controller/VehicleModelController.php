@@ -2,7 +2,7 @@
     use Slim\Http\Request;
     use Slim\Http\Response;
     
-    require_once "services/UserService.php";
+    require_once "services/CustomerService.php";
     
     class VehicleModelController {
         private $service;

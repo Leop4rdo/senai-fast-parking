@@ -14,6 +14,7 @@ class VehicleTypeRepository {
 
         $queryRes = $this->db->query($query);
 
+        // if there's an error in the database side we'll just return the error messsage with status 400
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
 
         $res = array();
@@ -29,6 +30,7 @@ class VehicleTypeRepository {
 
         $queryRes = $this->db->query($query);
 
+        // if there's an error in the database side we'll just return the error messsage with status 400
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
 
         $res = array();
@@ -40,6 +42,13 @@ class VehicleTypeRepository {
     } 
 
     function updateValue($param, $value, $id) {
-        # TODO: everything;
+        $query = "UPDATE vehicle_type SET $param = $value WHERE id = $id";
+
+        $queryRes = $this->db->query($query);
+
+        // if there's an error in the database side we'll just return the error messsage with status 400
+        if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
+
+        return array("message" => "successfully updated price", "status" => 200); 
     }
 }

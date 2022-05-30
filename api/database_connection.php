@@ -3,7 +3,7 @@
 // SERVER CONNECTION CONFIG ->
 const SERVER = "localhost";
 const USER = "root";
-const PASSWORD = "bcd127";
+const PASSWORD = "root";
 const DATABASE = "db_fastparking";
 
 

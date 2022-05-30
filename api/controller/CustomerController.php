@@ -1,4 +1,13 @@
 <?php
+/***********************************************\
+ * 
+ *  Controller layer for customers
+ * 
+ *  author : Leonardo Antunes
+ *  version : 1.0
+ * 
+\***********************************************/
+
 
 use Slim\Http\Request;
 use Slim\Http\Response;
