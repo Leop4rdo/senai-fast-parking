@@ -11,6 +11,7 @@ $app->get('/v1/parking-spot/',  function (Request $request, Response $response, 
     return $controller->getAll($request, $response, $args);
 });
 
+
 $app->get("/v1/parking-spot/{id}",  function (Request $request, Response $response, array $args) {
     $controller = new ParkingSpotController();
 
@@ -22,6 +23,7 @@ $app->post('/v1/parking-spot/',  function (Request $request, Response $response,
 
     return $controller->create($request, $response, $args);
 });
+
 
 $app->delete("/v1/parking-spot/{id}", function (Request $request, Response $response, array $args) {
     $controller = new ParkingSpotController();
