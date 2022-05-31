@@ -1,12 +1,6 @@
 <?php
 
-// SERVER CONNECTION CONFIG ->
-const SERVER = "localhost";
-const USER = "root";
-const PASSWORD = "root";
-const DATABASE = "db_fastparking";
-
-
+require_once "env_config.php";
 
 function connectToDatabase() {
     return new mysqli(SERVER, USER, PASSWORD, DATABASE,);
