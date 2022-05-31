@@ -30,3 +30,9 @@ $app->delete("/v1/parking-spot/{id}", function (Request $request, Response $resp
 
     return $controller->delete($request, $response, $args);
 });
+
+$app->put("/v1/parking-spot/{id}", function (Request $request, Response $response, array $args) {
+    $controller = new ParkingSpotController();
+
+    return $controller->update($request, $response, $args);
+});

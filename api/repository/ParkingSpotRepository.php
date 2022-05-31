@@ -55,7 +55,19 @@ class ParkingSpotRepository {
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
 
         return array("message" => "successfully deleted customer", "status" => 200); 
-    
-
     }    
+
+    function update($id, $body) {
+        $query = "UPDATE parking_spot SET 
+                    name = '". $body["name"] ."',
+                    vehicle_type_id = '". $body["vehicle_type_id"] ."'
+                    where id = $id;";
+
+        $queryRes = $this->db->query($query);
+
+        // if there's an error in the database side we'll just return the error messsage with status 400
+        if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
+
+        return array("message" => "successfully updated parking spot", "status" => 200); 
+    }
 }
