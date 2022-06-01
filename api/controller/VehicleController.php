@@ -2,13 +2,13 @@
     use Slim\Http\Request;
     use Slim\Http\Response;
     
-    require_once "services/VehicleModelService.php";
+    require_once "services/VehicleService.php";
     
-    class VehicleModelController {
+    class VehicleController {
         private $service;
     
         function __construct() {
-            $this->service = new VehicleModelService();
+            $this->service = new VehicleService();
         }
     
         function getAll(Request $request, Response $response, array $args) {

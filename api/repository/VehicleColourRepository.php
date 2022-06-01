@@ -2,7 +2,7 @@
 
 require_once "database_connection.php";
 
-class VehicleModelRepository {
+class VehicleColourRepository {
     private mysqli $db;
 
     function __construct() {
@@ -11,7 +11,7 @@ class VehicleModelRepository {
  
     function list() {
         
-        $query = "SELECT * FROM vehicle_model";
+        $query = "SELECT * FROM vehicle_colour ORDER BY id ASC";
 
         $queryRes = $this->db->query($query);
 
@@ -26,7 +26,7 @@ class VehicleModelRepository {
     }
 
     function find($param, $value) {
-        $query = "SELECT * FROM vehicle_model where $param = $value";
+        $query = "SELECT * FROM vehicle_colour where $param = $value";
 
         $queryRes = $this->db->query($query);
 
@@ -41,24 +41,24 @@ class VehicleModelRepository {
     } 
 
     function create( array $body ) {
-        $query = "INSERT INTO vehicle_model (name) values (
+        $query = "INSERT INTO vehicle_colour (name) values (
                         '". $body["name"] ."')";
                          
         $this->db->query($query);
 
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
 
-        return array("message" => "successfully created vehicle model", "status" => 200); 
+        return array("message" => "successfully created vehicle colour", "status" => 200); 
     }
 
     function delete($id) {
-        $query = "DELETE FROM vehicle_model WHERE id = $id";
+        $query = "DELETE FROM vehicle_colour WHERE id = $id";
 
         $queryRes =$this->db->query($query);
 
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
 
-        return array("message" => "successfully deleted vehicle model", "status" => 200); 
+        return array("message" => "successfully deleted vehicle colour", "status" => 200); 
     }
 }
 
