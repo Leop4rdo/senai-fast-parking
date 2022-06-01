@@ -21,18 +21,4 @@ $app->get("/v1/vehicle-colour/{id}",  function (Request $request, Response $resp
 
 });
 
-$app->post("/v1/vehicle-colour/",  function (Request $request, Response $response, array $args) {
-    
-    $controller = new VehicleColourController();
-
-    return $controller->create($request, $response, $args);
-
-});
-
-$app->delete("/v1/vehicle-colour/{id}", function (Request $request, Response $response, array $args) {
-    $controller = new VehicleColourController();
-
-    return $controller->delete($request, $response, $args);
-});
-
 ?>

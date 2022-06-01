@@ -5,7 +5,7 @@ use Slim\Http\Response;
 
 require_once "controller/VehicleController.php";
 
-$app->get('/v1/vehicle/',  function (Request $request, Response $response, array $args) {
+$app->get('/v1/vehicles/',  function (Request $request, Response $response, array $args) {
     
     $controller = new VehicleController();
 
@@ -13,7 +13,7 @@ $app->get('/v1/vehicle/',  function (Request $request, Response $response, array
 
 });
 
-$app->get("/v1/vehicle/{id}",  function (Request $request, Response $response, array $args) {
+$app->get("/v1/vehicles/{id}",  function (Request $request, Response $response, array $args) {
     
     $controller = new VehicleController();
 
@@ -21,7 +21,7 @@ $app->get("/v1/vehicle/{id}",  function (Request $request, Response $response, a
 
 });
 
-$app->post("/v1/vehicle/",  function (Request $request, Response $response, array $args) {
+$app->post("/v1/vehicles/",  function (Request $request, Response $response, array $args) {
     
     $controller = new VehicleController();
 
@@ -29,10 +29,10 @@ $app->post("/v1/vehicle/",  function (Request $request, Response $response, arra
 
 });
 
-$app->delete("/v1/vehicle/{id}", function (Request $request, Response $response, array $args) {
+$app->put("/v1/vehicles/{id}", function (Request $request, Response $response, array $args) {
     $controller = new VehicleController();
 
-    return $controller->delete($request, $response, $args);
+    return $controller->update($request, $response, $args);
 });
 
 ?>

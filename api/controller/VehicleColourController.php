@@ -27,23 +27,5 @@
                             ->withHeader("Content-Type", "application/json")
                             ->write(json_encode($resData));
         }
-    
-        function create(Request $request, Response $response, array $args) {
-            $body = $request->getParsedBody();
-    
-            $resData = (array) $this->service->create($body);
-    
-            return $response->withStatus($resData['status'])
-                            ->withHeader("Content-Type", "application/json")
-                            ->write(json_encode($resData));
-        }
-    
-        function delete(Request $request, Response $response, array $args) {
-            $resData = (array) $this->service->delete($args["id"]);
-    
-            return $response->withStatus($resData['status'])
-                            ->withHeader("Content-Type", "application/json")
-                            ->write(json_encode($resData));
-        }
     }
 ?>
