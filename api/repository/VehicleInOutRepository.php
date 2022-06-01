@@ -49,3 +49,5 @@ class VehicleInOutRepository {
         return array("message" => "successfully created vehicle in out", "status" => 200);
     }
 }
+
+
