@@ -44,11 +44,23 @@ class VehicleModelService {
             return array("message" => "not enough data!", "status" => 400);
         }
 
-        $hashedBody = $body;;
-
         $res = $this->repository->create($body);
 
         return array("message" => $res["message"], "status" => $res["status"]);
+    }
+
+    function update($id, $body) {
+        if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
+
+        // if vehicle model does not exists
+        $vehicleModel = $this->repository->find("id", $id);
+        if ( count($vehicleModel) === 0 ) return array("message" => "vehicle model does not exists in database!", "status" => 400);
+
+        // validating body
+        if (empty($body) || empty($body["name"])) return array("message" => "not enough data!", "status" => 400);
+
+        // updating vehicle model ->
+        return $res = $this->repository->update($id, $body);
     }
 
     function delete($id) {

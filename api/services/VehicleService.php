@@ -82,7 +82,7 @@ class VehicleService {
     function update($id, $body) {
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
 
-        // if parking spot does not exists
+        // if vehicle does not exists
         $vehicle = $this->repository->find("id", $id);
         if ( count($vehicle) === 0 ) return array("message" => "vehicle does not exists in database!", "status" => 400);
 

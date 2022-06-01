@@ -37,6 +37,14 @@
                             ->withHeader("Content-Type", "application/json")
                             ->write(json_encode($resData));
         }
+
+        function update(Request $request, Response $response, array $args) {
+            $resData = (array) $this->service->update($args["id"], $request->getParsedBody());
+    
+            return $response->withStatus($resData['status'])
+                    ->withHeader("Content-Type", "application/json")
+                    ->write(json_encode($resData));
+        }
     
         function delete(Request $request, Response $response, array $args) {
             $resData = (array) $this->service->delete($args["id"]);

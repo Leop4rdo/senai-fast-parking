@@ -26,6 +26,12 @@ $app->post("/v1/vehicle-models/",  function (Request $request, Response $respons
 
 });
 
+$app->put("/v1/vehicles-models/{id}", function (Request $request, Response $response, array $args) {
+    $controller = new VehicleModelController();
+
+    return $controller->update($request, $response, $args);
+});
+
 $app->delete("/v1/vehicle-models/{id}", function (Request $request, Response $response, array $args) {
     $controller = new VehicleModelController();
 
