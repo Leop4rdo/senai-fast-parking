@@ -9,6 +9,8 @@
 \***********************************************/
 
 use Slim\App;
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
@@ -18,6 +20,12 @@ header("Content-Type: application/json");
 require_once "vendor/autoload.php";
 
 $app = new App();
+
+$app->get("/v1/health-check/", function (Request $request, Response $response, array $args) {
+    $response->withStatus(200)
+            ->withHeader('Content-Type', 'application/json')
+            ->write('{"message": "Api is working properly!"}');
+});
 
 // LOADING ROUTES :
 require_once "routes/vehicle_model_routes.php"; // importing vehicle model endpoints...
