@@ -50,9 +50,6 @@ class VehicleInOutService {
         if (empty($body)) return array("message" => "not enough data!", "status" => 400);
 
         // validating vehicle_id
-        if (!is_numeric($body["vehicle_type_id"]) || $body["vehicle_type_id"] < 0) return array("message" => "Invalid vehicle type!", "status" => 400);
-
-        $vehicle = 
-
+        if (!is_numeric($body["vehicle_id"]) || $body["vehicle_id"] < 0) return array("message" => "Invalid vehicle type!", "status" => 400);
     }
 }
