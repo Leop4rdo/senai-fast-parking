@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".telaLogin"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/cinza_escuro">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="411dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/editTextUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/edit_usuario"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/edit_senha"
+        android:inputType="textPassword"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_entrar"
+        android:backgroundTint="@color/laranja_claro"
+        android:textColor="@color/cinza_super_escuro"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_ou"
+        android:textColor="@color/white"
+        android:layout_marginTop="200dp"/>
+
+</LinearLayout>
