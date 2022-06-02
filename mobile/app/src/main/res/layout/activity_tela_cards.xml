@@ -9,78 +9,91 @@
     tools:context=".telaCards">
 
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <ImageView
-        android:id="@+id/image_logo"
-        android:layout_width="188dp"
-        android:layout_height="92dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@id/view"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints"
-        />
-
     <LinearLayout
-        android:layout_width="225dp"
-        android:layout_height="92dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toEndOf="@+id/image_logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:id="@+id/header"
+        android:layout_width="416dp"
+        android:layout_height="98dp"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="188dp"
+            android:layout_height="92dp"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@id/view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.029"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/user"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_logo"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/user"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="140dp"/>
+            app:layout_constraintTop_toTopOf="parent" >
 
         <TextView
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="Usuáio"
+            android:layout_marginStart="150dp"
+            android:text="Usuário"
             android:textColor="@color/white"
-            android:layout_marginStart="150dp"/>
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="40dp"/>
+        </LinearLayout>
     </LinearLayout>
-
-
 
 
     <LinearLayout
         android:id="@+id/cadsModelo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/cinza_escuro"
         android:orientation="vertical"
         android:paddingHorizontal="15dp"
-        android:paddingTop="15dp"
-        android:background="@color/cinza_escuro"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_logo">
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1px" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="111dp"
+            android:layout_gravity="center"
+            android:text="2"
+            android:textColor="@color/laranja_claro"
+            android:textSize="80dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Vagas Disponíveis"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/text_categorias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:text="Modelo:"
             android:textColor="@color/white"
-            android:textSize="25dp"
-            android:textStyle="bold"
+            android:textSize="20dp"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="69dp" />
 
@@ -104,10 +117,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
                         android:text="TRACKER"
                         android:textColor="@color/cinza_super_escuro"
-                        android:textSize="20dp"
-                        android:layout_marginStart="20dp"/>
+                        android:textSize="20dp" />
 
                     <ImageView
                         android:layout_width="80dp"
@@ -121,67 +134,67 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="10dp"/>
+                    android:layout_height="10dp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="350dp"
                     android:layout_height="100dp"
+                    android:layout_gravity="center"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    android:layout_gravity="center">
+                    app:cardElevation="0dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
                         android:text="ONIX PLUS"
                         android:textColor="@color/cinza_super_escuro"
-                        android:textSize="20dp"
-                        android:layout_marginStart="20dp"/>
+                        android:textSize="20dp" />
 
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/car"
                         android:layout_gravity="end"
-                        android:layout_marginEnd="30dp"/>
+                        android:layout_marginEnd="30dp"
+                        android:src="@drawable/car" />
 
                     <androidx.viewpager.widget.ViewPager
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"/>
+                        android:layout_height="10dp" />
 
                 </androidx.cardview.widget.CardView>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="10dp"/>
+                    android:layout_height="10dp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="350dp"
                     android:layout_height="100dp"
+                    android:layout_gravity="center"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    android:layout_gravity="center">
+                    app:cardElevation="0dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
                         android:text="Honda PCX 150"
                         android:textColor="@color/cinza_super_escuro"
-                        android:textSize="20dp"
-                        android:layout_marginStart="20dp"/>
+                        android:textSize="20dp" />
 
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/moto"
                         android:layout_gravity="end"
-                        android:layout_marginEnd="30dp"/>
+                        android:layout_marginEnd="30dp"
+                        android:src="@drawable/moto" />
 
                     <androidx.viewpager.widget.ViewPager
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"/>
+                        android:layout_height="10dp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -189,9 +202,9 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="Continuar"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/shape_container_modelos"
+                    android:backgroundTint="@color/laranja_claro"
+                    android:text="Continuar"
                     android:textColor="@color/cinza_super_escuro" />
 
                 <TextView
@@ -200,11 +213,18 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
                     android:text="SAIR"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
             </LinearLayout>
 
 
         </androidx.core.widget.NestedScrollView>
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
