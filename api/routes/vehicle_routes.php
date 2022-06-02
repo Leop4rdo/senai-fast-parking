@@ -5,11 +5,14 @@ use Slim\Http\Response;
 
 require_once "controller/VehicleController.php";
 
-$app->get('/v1/vehicles/',  function (Request $request, Response $response, array $args) {
+$app->get('/v1/vehicles',  function (Request $request, Response $response, array $args) {
     
     $controller = new VehicleController();
 
-    return $controller->getAll($request, $response, $args);
+    if( $request->getQueryParam("customer") > 0 )
+        return $controller->getByCustomerId($request, $response, $args);
+    else 
+        return $controller->getAll($request, $response, $args);
 
 });
 
@@ -21,7 +24,7 @@ $app->get("/v1/vehicles/{id}",  function (Request $request, Response $response, 
 
 });
 
-$app->post("/v1/vehicles/",  function (Request $request, Response $response, array $args) {
+$app->post("/v1/vehicles",  function (Request $request, Response $response, array $args) {
     
     $controller = new VehicleController();
 
@@ -33,6 +36,6 @@ $app->put("/v1/vehicles/{id}", function (Request $request, Response $response, a
     $controller = new VehicleController();
 
     return $controller->update($request, $response, $args);
-});
+}); 
 
 ?>
