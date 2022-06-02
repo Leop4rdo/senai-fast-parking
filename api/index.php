@@ -19,8 +19,14 @@ header("Content-Type: application/json");
 
 require_once "vendor/autoload.php";
 
-$app = new App();
+// SLIM APP CONFIG
+$app = new App([
+    'settings' => [
+        'displayErrorDetails' => true
+    ]
+]);
 
+// health check endpoint
 $app->get("/v1/health-check/", function (Request $request, Response $response, array $args) {
     $response->withStatus(200)
             ->withHeader('Content-Type', 'application/json')
@@ -34,7 +40,8 @@ require_once "routes/vehicle_colour_routes.php";// importing vehicle colour endp
 require_once "routes/vehicle_model_routes.php"; // importing vehicle model endpoints...
 require_once "routes/vehicle_type_routes.php";  // importing vehicle type endpoints...
 require_once "routes/parking_spot_routes.php";  // importing parking spot endpoints...
-// TODO : vehicle_in_out
+require_once "routes/vehicle_in_out_routes.php"; // importing vehicle in out endpoits
 
+// executing routes
 $app->run();
 ?>
