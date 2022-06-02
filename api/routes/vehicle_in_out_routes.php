@@ -22,3 +22,9 @@ $app->post('/v1/vehicle-in-out/', function (Request $request, Response $response
 
     return $controller->create($request, $response, $args);
 });
+
+$app->put("/v1/vehicle-in-out/exit/{id}",  function (Request $request, Response $response, array $args) {
+    $controller = new VehicleInOutController();
+
+    return $controller->setExitTime($request, $response, $args);
+});

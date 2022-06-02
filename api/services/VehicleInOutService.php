@@ -11,6 +11,7 @@
 require_once "repository/VehicleInOutRepository.php";
 require_once "repository/VehicleRepository.php";
 require_once "repository/ParkingSpotRepository.php";
+require_once "repository/VehicleTypeRepository.php";
 
 class VehicleInOutService {
     private $repository;
@@ -54,30 +55,49 @@ class VehicleInOutService {
         if (empty($body)) return array("message" => "not enough data!", "status" => 400);
 
         // validating vehicle
-        try {
-            $this->validateVehicle($body["vehicle_id"]);
-        } catch (Exception $e) {
-            return array("message" => $e->getMessage(), "status" =>400);
-        }
+        try { $this->validateVehicle($body["vehicle_id"]); } 
+        catch (Exception $e) { return array("message" => $e->getMessage(), "status" =>400); }
 
         // validating parking_spot
-        try {
-            $this->validateParkingSpot($body["parking_spot_id"]);
-        } catch (Exception $e) {
-            return array("message" => $e->getMessage(), "status" =>400);
-        }
-        
-        // validating parking_spot
-        if (!is_numeric($body["parking_spot_id"]) || $body["parking_spot_id"] < 0) return array("message" => "Invalid vehicle!", "status" => 400);
+        try { $this->validateParkingSpot($body["parking_spot_id"]); } 
+        catch (Exception $e) { return array("message" => $e->getMessage(), "status" =>400); }
 
-        $parkingSpot = $this->parkingSpotRepository->find("id", $body["parking_spot_id"]);
-        if ( count($parkingSpot) === 0 ) return array("message" => "Parking spot does not exists!", "status" => 400);
+        // setting entrance time:
+        date_default_timezone_set("America/Sao_Paulo");
+        $body["entrance_time"] = date("Y-m-d H:i:s");
         
         // sending data to repository
         $res = $this->repository->create($body);
 
         return array("message" => $res["message"], "status" => $res["status"]);
-    }   
+    }
+
+    function setExitTime($id) {
+        // validating id
+        if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
+
+        $inOut = $this->repository->find("id", $id);
+        if ( count($inOut) === 0 ) return array("message" => "Vehicle in out does not exists!", "status" => 400);
+        if ( $inOut["exit_time"] != null ) return array("message" => "vehicle in out has already been terminated!", "status" => 400);
+        
+        // setting exit time
+        date_default_timezone_set("America/Sao_Paulo");
+        $inOut["exit_time"] = date("Y-m-d H:i:s");
+
+        // getting hour price
+        $parkingSpot = $this->parkingSpotRepository->find("id", $inOut["parking_spot_id"]);
+        $typeRepository = new VehicleTypeRepository();
+        
+        // setting total price
+        $hourPrice = $this->getHourPrice($inOut["parking_spot_id"]);
+        $inOut["total_price"] = $this->getTotalPrice($hourPrice, $inOut["entrance_time"], $inOut["exit_time"]);
+
+        // updating database
+        $res = $this->repository->update($inOut);
+
+        if ($res["status"] != 200) return $res;
+        else return array("data" => $inOut, "status" => 200);
+    }
 
     private function validateVehicle($id) {
         // validating vehicle_id
@@ -105,4 +125,30 @@ class VehicleInOutService {
         if ( count($isParkingSpotInUse) > 0 && $isParkingSpotInUse["exit_time"] == null ) throw new Exception("Parking spot is already in use!");
     }
 
+    private function getHourPrice($parkingSpotId) {
+        $parkingSpot = $this->parkingSpotRepository->find("id", $parkingSpotId);
+        $typeRepository = new VehicleTypeRepository();
+        return $typeRepository->find("id", $parkingSpot["vehicle_type_id"])["price"];
+    }
+
+    private function dateIntervalToHours($interval) {
+        $yearsInMonths = $interval->y * 12;
+        $monthsInDays = ($yearsInMonths + $interval->m) * 30;
+        $daysInHours = ($monthsInDays + $interval->d) * 24;
+        $hours = $daysInHours + $interval->h;
+
+        return $hours;
+    }
+
+    private function getTotalPrice($hourPrice, $entranceTime, $exitTime) {
+        $entranceTimeDate = new DateTime($entranceTime);
+        $exitTimeDate = new DateTime($exitTime);      
+
+        $interval = date_diff($entranceTimeDate, $exitTimeDate);
+        $totalHours = $this->dateIntervalToHours($interval);
+
+        if ($totalHours > 24) return $totalHours * $hourPrice * .5;
+        else if ($totalHours > 1) return $totalHours * $hourPrice;
+        else return $hourPrice *.5;
+    }
 }

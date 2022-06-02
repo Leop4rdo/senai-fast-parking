@@ -45,4 +45,13 @@ class VehicleInOutController {
                 ->write(json_encode($resData));
     }
 
+    function setExitTime(Request $request, Response $response, array $args) {
+        $resData = (array) $this->service->setExitTime($args["id"]);
+
+        
+        return $response->withStatus($resData['status'])
+                ->withHeader("Content-Type", "application/json")
+                ->write(json_encode($resData));
+    }
+
 }
