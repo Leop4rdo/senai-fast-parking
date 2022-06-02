@@ -51,6 +51,20 @@ class VehicleColourService {
         return array("message" => $res["message"], "status" => $res["status"]);
     }
 
+    function update($id, $body) {
+        if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
+
+        // if vehicle colour does not exists
+        $vehicleColour = $this->repository->find("id", $id);
+        if ( count($vehicleColour) === 0 ) return array("message" => "vehicle colour does not exists in database!", "status" => 400);
+
+        // validating body
+        if (empty($body) || empty($body["name"])) return array("message" => "not enough data!", "status" => 400);
+
+        // updating vehicle colour ->
+        return $res = $this->repository->update($id, $body);
+    }
+
     function delete($id) {
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
 

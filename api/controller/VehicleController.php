@@ -28,6 +28,17 @@
                             ->write(json_encode($resData));
         }
     
+        function getByCustomerId(Request $request, Response $response, array $args) {
+            
+            $customerId = $request->getQueryParam("customer");
+
+            $resData = (array) $this->service->findByCustomerId($customerId);
+
+            return $response->withStatus($resData['status'])
+                            ->withHeader("Content-Type", "application/json")
+                            ->write(json_encode($resData));
+        }
+
         function create(Request $request, Response $response, array $args) {
             $body = $request->getParsedBody();
     

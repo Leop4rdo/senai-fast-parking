@@ -26,7 +26,8 @@ class VehicleRepository {
     }
 
     function find($param, $value) {
-        $query = "SELECT * FROM vehicle where $param = $value";
+        
+        $query = "SELECT * FROM vehicle WHERE $param = $value";
 
         $queryRes = $this->db->query($query);
 
@@ -38,7 +39,23 @@ class VehicleRepository {
         }
 
         return $res;
-    } 
+    }
+
+    function findByCostumerId($param, $value) {
+        
+        $query = "SELECT * FROM vehicle WHERE $param = $value";
+
+        $queryRes = $this->db->query($query);
+
+        if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
+
+        $res = array();
+        while ($row = $queryRes->fetch_assoc()) {
+            $res[] = $row;
+        }
+
+        return $res;
+    }
 
     function create( array $body ) {
         $query = "INSERT INTO vehicle (
