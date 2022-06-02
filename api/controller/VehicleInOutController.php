@@ -1,23 +1,22 @@
 <?php
 /***********************************************\
  * 
- *  Controller layer for parking spots
+ *  Controller layer for Vehicle In Out entity
  * 
- *  Author : Leonardo antunes
- *  version : 1.0
+ *  Author: Leonardo Antunes
+ *  version: 1.0
  * 
 \***********************************************/
-
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-require_once "services/ParkingSpotService.php";
+require_once "services/VehicleInOutService.php";
 
-class ParkingSpotController {
+class VehicleInOutController {
     private $service;
 
     function __construct() {
-        $this->service = new ParkingSpotService();
+        $this->service = new VehicleInOutService();
     }
 
     function getAll(Request $request, Response $response, array $args) {
@@ -46,19 +45,13 @@ class ParkingSpotController {
                 ->write(json_encode($resData));
     }
 
-    function delete(Request $request, Response $response, array $args) {
-        $resData = (array) $this->service->delete($args["id"]);
+    function setExitTime(Request $request, Response $response, array $args) {
+        $resData = (array) $this->service->setExitTime($args["id"]);
 
+        
         return $response->withStatus($resData['status'])
                 ->withHeader("Content-Type", "application/json")
                 ->write(json_encode($resData));
     }
 
-    function update(Request $request, Response $response, array $args) {
-        $resData = (array) $this->service->update($args["id"], $request->getParsedBody());
-
-        return $response->withStatus($resData['status'])
-                ->withHeader("Content-Type", "application/json")
-                ->write(json_encode($resData));
-    }
 }
