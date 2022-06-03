@@ -1,16 +1,18 @@
-"use strict";
-
 class Sidebar extends HTMLElement {
+    activeIndex = 0;
+
     constructor() {
         super();
-
         this.build();
     }
 
     build() {
         const shadowDOM = this.attachShadow({ mode: "open" });
-        shadowDOM.append(this.style());
+
+        this.activeIndex = this.dataset.activeIndex;
+
         shadowDOM.append(this.render());
+        shadowDOM.append(this.style());
     }
 
     style() {
@@ -19,7 +21,7 @@ class Sidebar extends HTMLElement {
         const styles = `
             .sidebar {
                 height: 100vh;
-                width: clamp(100px, 7.5vw, 200px);
+                width: clamp(60px, 7.5vw, 120px);
             
                 background-color: var(--dark);
             
@@ -29,7 +31,7 @@ class Sidebar extends HTMLElement {
             .sidebar-nav {
                 display: flex;
                 flex-direction: column;
-                gap: 5vh;
+                gap: clamp(20px, 2.5vw, 25px);
             }
             
             .nav-item {
@@ -40,7 +42,7 @@ class Sidebar extends HTMLElement {
             
                 position: relative;
             
-                height: 6vh;
+                height: clamp(32px, 5vw, 64px);
             }
             
             .nav-item.active::before {
@@ -49,7 +51,7 @@ class Sidebar extends HTMLElement {
             
                 background-color: var(--primary);
                 width: 0.75vw;
-                max-width: 10px;
+                max-width: 8px;
                 height: 100%;
             
                 border-radius: 5px;
@@ -59,7 +61,7 @@ class Sidebar extends HTMLElement {
             }
             
             .nav-item a {
-                width: clamp(32px, 4vw, 64px);
+                width: clamp(24px, 4vw, 48px);
             }
             
             .nav-item a > img {
@@ -76,36 +78,34 @@ class Sidebar extends HTMLElement {
         const side = document.createElement("div");
         side.classList.add("sidebar");
 
-        const { activeIndex } = this.dataset;
-
         side.innerHTML = `
-        <nav class="sidebar-nav">
-            <div class="nav-item ${activeIndex === 0 ? "active" : ""}">
-                <a href="/">
-                    <img src="assets/icons/users-${activeIndex === 0 ? "yellow" : "white"}.png" alt="usuarios" />
-                </a>
-            </div>
-            <div class="nav-item ${activeIndex === 1 ? "active" : ""}">
-                <a href="/">
-                    <img src="assets/icons/vehicle-${activeIndex === 1 ? "yellow" : "white"}.png" alt="usuarios" />
-                </a>
-            </div>
-            <div class="nav-item ${activeIndex === 2 ? "active" : ""}">
-                <a href="/">
-                    <img src="assets/icons/parking-${activeIndex === 2 ? "yellow" : "white"}.png" alt="usuarios" />
-                </a>
-            </div>
-            <div class="nav-item ${activeIndex === 3 ? "active" : ""}">
-                <a href="/">
-                    <img src="assets/icons/in-out-${activeIndex === 3 ? "yellow" : "white"}.png" alt="usuarios" />
-                </a>
-            </div>
-            <div class="nav-item ${activeIndex === 4 ? "active" : ""}">
-                <a href="/">
-                    <img src="assets/icons/dashboard-${activeIndex === 4 ? "yellow" : "white"}.png" alt="usuarios" />
-                </a>
-            </div>
-        </nav>
+            <nav class="sidebar-nav">
+                <div class="nav-item ${this.activeIndex == "0" ? "active" : ""}">
+                    <a href="/">
+                        <img src="assets/icons/users-${this.activeIndex == 0 ? "yellow" : "white"}.png" alt="usuarios" />
+                    </a>
+                </div>
+                <div class="nav-item ${this.activeIndex == "1" ? "active" : ""}">
+                    <a href="/">
+                        <img src="assets/icons/vehicle-${this.activeIndex == 1 ? "yellow" : "white"}.png" alt="usuarios" />
+                    </a>
+                </div>
+                <div class="nav-item ${this.activeIndex == "2" ? "active" : ""}">
+                    <a href="/">
+                        <img src="assets/icons/parking-${this.activeIndex == 2 ? "yellow" : "white"}.png" alt="usuarios" />
+                    </a>
+                </div>
+                <div class="nav-item ${this.activeIndex == "3" ? "active" : ""}">
+                    <a href="/">
+                        <img src="assets/icons/in-out-${this.activeIndex == 3 ? "yellow" : "white"}.png" alt="usuarios" />
+                    </a>
+                </div>
+                <div class="nav-item ${this.activeIndex == "4" ? "active" : ""}">
+                    <a href="/">
+                        <img src="assets/icons/dashboard-${this.activeIndex == 4 ? "yellow" : "white"}.png" alt="usuarios" />
+                    </a>
+                </div>
+            </nav>
         `;
 
         return side;

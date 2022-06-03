@@ -8,31 +8,16 @@
 
         <!-- Loading CSS -->
         <link rel="stylesheet" href="./assets/styles/reset.css" />
-        <link rel="stylesheet" href="./assets/styles/components/sidebar.css" />
+        <link rel="stylesheet" href="./assets/styles/header.css" />
 
         <!-- Loading custom components -->
-        <script src="./src/components/sidebar.js" ></script>
+        <script src="./src/components/sidebar.js" defer></script>
     </head>
     <body>
-        <sidebar-component />
-        <!-- <div class="sidebar">
-            <nav class="sidebar-nav">
-                <div class="nav-item selected">
-                    <a href="/"><img src="assets/icons/users-white.png" alt="usuarios" /></a>
-                </div>
-                <div class="nav-item">
-                    <a href="/"><img src="assets/icons/vehicle-white.png" alt="usuarios" /></a>
-                </div>
-                <div class="nav-item">
-                    <a href="/"><img src="assets/icons/parking-white.png" alt="usuarios" /></a>
-                </div>
-                <div class="nav-item">
-                    <a href="/"><img src="assets/icons/in-out-white.png" alt="usuarios" /></a>
-                </div>
-                <div class="nav-item">
-                    <a href="/"><img src="assets/icons/dashboard-white.png" alt="usuarios" /></a>
-                </div>
-            </nav>
-        </div>
-    </body> -->
+        <sidebar-component data-active-index="0"></sidebar-component>
+        <header>
+            <h1>Cadastro de usuários</h1>
+            <img src="assets/logo.png" alt="" />
+        </header>
+    </body>
 </html>
