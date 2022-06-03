@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/image_logo"
-            android:layout_width="188dp"
-            android:layout_height="92dp"
+            android:layout_width="243dp"
+            android:layout_height="match_parent"
             android:src="@drawable/logo"
             app:layout_constraintBottom_toTopOf="@id/view"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,24 +32,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="140dp"
-            android:layout_marginTop="5dp"
-            android:src="@mipmap/user"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_logo"
-            app:layout_constraintTop_toTopOf="parent" >
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/user"
+                android:layout_marginStart="70dp"/>
 
-        <TextView
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:text="Usuário"
-            android:textColor="@color/white"
-            android:layout_gravity="bottom"
-            android:layout_marginEnd="40dp"/>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="40dp"
+                android:text="Usuário"
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 
@@ -69,13 +65,14 @@
             android:layout_width="match_parent"
             android:layout_height="1px" />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="111dp"
             android:layout_gravity="center"
-            android:text="2"
+            android:text="3"
             android:textColor="@color/laranja_claro"
-            android:textSize="80dp" />
+            android:textSize="80dp"
+            android:textStyle="normal|bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,10 +98,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"/>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="349dp"
@@ -114,10 +115,10 @@
                     app:cardElevation="0dp">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="100dp"
                         android:text="TRACKER"
                         android:textColor="@color/cinza_super_escuro"
                         android:textSize="20dp" />
@@ -144,10 +145,10 @@
                     app:cardElevation="0dp">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="109dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="90dp"
                         android:text="ONIX PLUS"
                         android:textColor="@color/cinza_super_escuro"
                         android:textSize="20dp" />
@@ -158,10 +159,6 @@
                         android:layout_gravity="end"
                         android:layout_marginEnd="30dp"
                         android:src="@drawable/car" />
-
-                    <androidx.viewpager.widget.ViewPager
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -177,10 +174,10 @@
                     app:cardElevation="0dp">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="154dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="60dp"
                         android:text="Honda PCX 150"
                         android:textColor="@color/cinza_super_escuro"
                         android:textSize="20dp" />
@@ -192,39 +189,24 @@
                         android:layout_marginEnd="30dp"
                         android:src="@drawable/moto" />
 
-                    <androidx.viewpager.widget.ViewPager
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
                 </androidx.cardview.widget.CardView>
 
-                <Button
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/laranja_claro"
-                    android:text="Continuar"
-                    android:textColor="@color/cinza_super_escuro" />
 
-                <TextView
-                    android:id="@+id/sair"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="30dp"
-                    android:text="SAIR"
-                    android:textColor="@color/white" />
             </LinearLayout>
 
 
         </androidx.core.widget.NestedScrollView>
 
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/sair"
+        android:layout_width="91dp"
+        android:layout_height="41dp"
+        android:layout_gravity="end"
+        android:background="transparent"
+        android:text="SAIR"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="690dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
