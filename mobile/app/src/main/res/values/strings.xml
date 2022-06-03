@@ -3,5 +3,12 @@
     <string name="edit_usuario">Usuário</string>
     <string name="edit_senha">Senha</string>
     <string name="btn_entrar">Entrar</string>
+
     <string name="text_warning">Cadastro feito somente na portaria!</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="btn_voltar">Voltar</string>
+    <string name="btn_sair">Sair</string>
+    <string name="btn_editar">Editar</string>
+    <string name="text_warning2">Pagamento deve ser realizado na saída!</string>
+
 </resources>
