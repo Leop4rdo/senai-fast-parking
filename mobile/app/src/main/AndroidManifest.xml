@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoEstacionamento">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DataDisplayActivity"
+            android:exported="false" />
+        <activity
             android:name=".telaCards"
             android:exported="true">
             <intent-filter>
