@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">projetoEstacionamento</string>
+    <string name="edit_usuario">Usuário</string>
+    <string name="edit_senha">Senha</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="text_ou">Cadastro feito somente na portaria!</string>
+</resources>
