@@ -5,26 +5,120 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-}
-
-:root {
-    /* neutral colours */
-    --dark: #2e3440;
-    --variant-dark: #3b4252;
-    --gray: #acb3c4;
-    /*******************/
-
-    /* other colours */
-    --primary: #ebcb8b;
-    --green: #a3be8c;
-    --red: #bf616a;
-    /*****************/
+    
 }
 
 body {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    background-color: #3B4252;
+} 
 
-    background-color: var(--variant-dark);
+.container{
+    background-color: #2E3440;
+    padding: 6px;
+    width: 450px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
     overflow: hidden;
+    border-radius: 15px;
+    /* box-shadow: 0 0 20px 0; */
+}
+
+.form{
+    position: relative;
+    margin-top: 80px;
+    transition: .5s;
+    width: 300px;
+    height: 400px;
+}
+
+.buttonsForm{
+
+    margin-top: 40px;
+    position: relative;
+    color: #EBCB8B;
+    font-size: 27px;
+    font-weight: bold;
+    
+}
+
+input[type="email"]{
+    
+    border: none;
+    margin-top: 55px;
+    margin-left: 70px;
+    border-radius: 9px;
+    /* padding: 8px 0 8px 35px;  */
+    outline: none;
+    width: 80%;
+    border-bottom: 4px solid #EBCB8B;
+    background-color: #3B4252;
+    height: 36px;
+
+}
+
+ input[type="password"]{
+    border: none;
+    margin-top: 55px; 
+    margin-left: 70px;
+    border-radius: 9px;
+    /* padding: 8px 0 8px 35px;  */
+    outline: none;
+    width: 75%;
+    border-bottom: 4px solid #EBCB8B;
+    background-color: #3B4252;
+    height: 36px;
+
+}
+
+input[type="text"]{
+
+    border: none;
+    margin-top: 55px; 
+    margin-left: 70px;
+    border-radius: 9px;
+    /* padding: 8px 0 8px 35px;  */
+    outline: none;
+    width: 70%;
+    border-bottom: 4px solid #EBCB8B;
+    background-color: #3B4252;
+    height: 36px;
+}
+
+.category{
+    color: #ffffff;
+    width: 45px;
+    
+}
+
+button[type="submit"]{
+    background-color: #EBCB8B;
+    color: #2E3440;
+    border-radius: 8px;
+    width: 30%;
+    height: 13%;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    margin-top: 55px;
+    margin-left: 150px;
+}
+
+.forgotPassword{
+    color: #ffffff;
+    margin-left: 90px;
+    height: 45px;
+}
+
+.forgotEmail{
+    color: #ffffff;
+    margin-left: 90px;
+   
 }

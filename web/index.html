@@ -3,36 +3,27 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>administração - Fast Parking</title>
-
-        <!-- Loading CSS -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="./assets/styles/reset.css" />
-        <link rel="stylesheet" href="./assets/styles/components/sidebar.css" />
-
-        <!-- Loading custom components -->
-        <script src="./src/components/sidebar.js" ></script>
     </head>
     <body>
-        <sidebar-component />
-        <!-- <div class="sidebar">
-            <nav class="sidebar-nav">
-                <div class="nav-item selected">
-                    <a href="/"><img src="assets/icons/users-white.png" alt="usuarios" /></a>
-                </div>
-                <div class="nav-item">
-                    <a href="/"><img src="assets/icons/vehicle-white.png" alt="usuarios" /></a>
-                </div>
-                <div class="nav-item">
-                    <a href="/"><img src="assets/icons/parking-white.png" alt="usuarios" /></a>
-                </div>
-                <div class="nav-item">
-                    <a href="/"><img src="assets/icons/in-out-white.png" alt="usuarios" /></a>
-                </div>
-                <div class="nav-item">
-                    <a href="/"><img src="assets/icons/dashboard-white.png" alt="usuarios" /></a>
-                </div>
-            </nav>
-        </div>
-    </body> -->
+        <div class="container">
+            <div class="buttonsForm">
+                <div class="btnColor"></div>
+                <div class="title">Faça o login</div>
+            </div>
+
+            <form id="title">
+                <!-- <span class="category">nome</span> -->
+                <input type="text" required>
+                <!-- <span  class="category">email</span> -->
+                <input type="email" required>
+                <!-- <span  class="category">senha</span> -->
+                <input type="password" required>
+                <span class="forgotPassword">esqueceu a senha?<a href="#"> clique aqui!</a></span>
+                <span class="forgotEmail">não consegue acessar seu email?<a href="#"> confirmação por sms.</a></span>
+                <button type="submit">E N T R A R</button>
+            </form>
+        </div>         
+    </body> 
 </html>
