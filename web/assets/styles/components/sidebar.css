@@ -1,0 +1,48 @@
+.sidebar {
+    height: 100vh;
+    width: clamp(100px, 7.5vw, 200px);
+
+    background-color: var(--dark);
+
+    padding: clamp(20px, 5vh, 50px) 0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.nav-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    height: 6vh;
+}
+
+.nav-item.active::before {
+    content: "";
+    display: block;
+
+    background-color: var(--primary);
+    width: 0.75vw;
+    max-width: 10px;
+    height: 100%;
+
+    border-radius: 5px;
+
+    position: absolute;
+    left: 0;
+}
+
+.nav-item a {
+    width: clamp(32px, 4vw, 64px);
+}
+
+.nav-item a > img {
+    width: 100%;
+}
