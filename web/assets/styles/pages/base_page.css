@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.row-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 25px;
+}
+
+aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+}
+
+aside form {
+    width: clamp(300px, 30vw, 400px);
+    padding: 24px;
+
+    background-color: var(--dark);
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}

@@ -9,15 +9,48 @@
         <!-- Loading CSS -->
         <link rel="stylesheet" href="./assets/styles/reset.css" />
         <link rel="stylesheet" href="./assets/styles/header.css" />
+        <link rel="stylesheet" href="./assets/styles/components/inputs.css" />
+        <link rel="stylesheet" href="./assets/styles/pages/base_page.css" />
 
         <!-- Loading custom components -->
         <script src="./src/components/sidebar.js" defer></script>
     </head>
     <body>
         <sidebar-component data-active-index="0"></sidebar-component>
-        <header>
-            <h1>Cadastro de usuários</h1>
-            <img src="assets/logo.png" alt="" />
-        </header>
+        <main>
+            <header>
+                <h1>Cadastro de usuários</h1>
+                <img src="assets/logo.png" alt="" />
+            </header>
+
+            <div class="row-container">
+                <aside>
+                    <form autocomplete="off">
+                        <div class="input-field">
+                            <label for="name">Usuário</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="email">Usuário</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="phone">Telefone</label>
+                            <input type="text" id="phone" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" required>
+                        </div>
+
+                        <button class="primary-btn">cadastrar</button>
+                    </form>
+                </aside>
+            </div>
+        </main>
     </body>
 </html>
