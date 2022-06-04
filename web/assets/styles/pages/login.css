@@ -1,7 +1,12 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.logo {
+    width: clamp(200px, 40vw, 350px);
 }
 
 .login-container {

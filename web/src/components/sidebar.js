@@ -28,6 +28,10 @@ class Sidebar extends HTMLElement {
                 padding: 5vh 0;
 
                 border-right: dashed 2px var(--primary);
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
             }
             
             .sidebar-nav {
@@ -108,6 +112,12 @@ class Sidebar extends HTMLElement {
                     </a>
                 </div>
             </nav>
+
+            <div class="nav-item">
+                <a href="index.html">
+                    <img src="assets/icons/logout-white.png" alt="sair" />
+                </a>
+            </div>
         `;
 
         return side;

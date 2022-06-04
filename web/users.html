@@ -8,12 +8,19 @@
 
         <!-- Loading CSS -->
         <link rel="stylesheet" href="./assets/styles/reset.css" />
+        <link rel="stylesheet" href="./assets/styles/pages/base_page.css" />
         <link rel="stylesheet" href="./assets/styles/header.css" />
         <link rel="stylesheet" href="./assets/styles/components/inputs.css" />
-        <link rel="stylesheet" href="./assets/styles/pages/base_page.css" />
+        <link rel="stylesheet" href="./assets/styles/components/table.css" />
+
+        <!-- Google Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <!-- Loading custom components -->
         <script src="./src/components/sidebar.js" defer></script>
+
+        <!-- Loading JS -->
+        <script src="./src/pages/users.js" defer type="module"></script>
     </head>
     <body>
         <sidebar-component data-active-index="0"></sidebar-component>
@@ -24,7 +31,7 @@
             </header>
 
             <div class="row-container">
-                <aside>
+                <div class="form-container">
                     <form autocomplete="off">
                         <div class="input-field">
                             <label for="name">Usuário</label>
@@ -49,7 +56,17 @@
 
                         <button class="primary-btn">cadastrar</button>
                     </form>
-                </aside>
+                </div>
+                <div class="data-view">
+                    <table id="data-view-table">
+                        <tr>
+                            <th class="table-header">Nome</th>
+                            <th class="table-header">Email</th>
+                            <th class="table-header">cpf</th>
+                            <th class="table-header">Opções</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </main>
     </body>

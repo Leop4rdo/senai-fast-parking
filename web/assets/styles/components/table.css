@@ -1,0 +1,66 @@
+table {
+    width: 80%;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+tr {
+    background-color: #ECEFF4;
+    line-height: 42px !important;
+    width: 100%;
+}
+tr:nth-child(odd) {
+    background-color: #D8DEE9;
+}
+
+tr:first-child {
+    background-color: var(--dark-variant);
+}
+
+.table-header {
+    background-color: var(--primary);
+    height: 42px !important;
+    line-height: 42px !important;
+}
+
+.table-header,
+.table-item {
+    margin: 1px;
+    padding: 4px 8px;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.table-item.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+    height: 100%;
+}
+
+.table-item.options div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-btn span,
+.edit-btn span{
+    font-size: 1.75rem;
+     color: #4C566A;
+
+     cursor: pointer;
+
+     transition: color 0.25s ease-out;
+}
+
+.delete-btn:hover span {
+    color: var(--red);
+}
+.edit-btn:hover span {
+    color: var(--green);
+}
