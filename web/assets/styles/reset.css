@@ -5,29 +5,20 @@
     padding: 0;
     margin: 0;
     font-family: "Montserrat", sans-serif;
+    color: white;
 }
 
 :root {
-    /* neutral colours */
-    --dark: #2e3440;
-    --variant-dark: #3b4252;
-    --gray: #acb3c4;
-    /*******************/
-
-    /* other colours */
-    --primary: #ebcb8b;
-    --green: #a3be8c;
-    --red: #bf616a;
-    /*****************/
+    --dark : #2E3440;
+    --dark-variant : #3B4252;
+    --gray : #a8b1c2;
+    --primary : #EBCB8B;
+    --red : #BF616A;
+    --green : #A3BE8C;
 }
 
 body {
     width: 100vw;
-    height: 100vh;
-
-    background-color: var(--variant-dark);
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: row;
-}
+    height: 100vh;  
+    background-color: var(--dark-variant);
+} 

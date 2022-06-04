@@ -3,21 +3,28 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>administração - Fast Parking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <!-- Loading CSS -->
+        <!-- Loading css -->
         <link rel="stylesheet" href="./assets/styles/reset.css" />
-        <link rel="stylesheet" href="./assets/styles/header.css" />
+        <link rel="stylesheet" href="./assets/styles/components/inputs.css">
+        <link rel="stylesheet" href="./assets/styles/pages/login.css" />
 
-        <!-- Loading custom components -->
-        <script src="./src/components/sidebar.js" defer></script>
     </head>
     <body>
-        <sidebar-component data-active-index="0"></sidebar-component>
-        <header>
-            <h1>Cadastro de usuários</h1>
-            <img src="assets/logo.png" alt="" />
-        </header>
-    </body>
+        <div class="login-container">
+            <h1>Entrar</h1>
+            <form autocomplete="off">
+                <div class="input-field">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" >
+                </div>
+                <div class="input-field">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" >
+                </div>
+                <button class="primary-btn">entrar</button>
+            </form>
+        </div>       
+    </body> 
 </html>
