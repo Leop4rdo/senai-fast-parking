@@ -40,7 +40,7 @@ class CustomerService {
     }
 
     function create($body) {
-        if (empty($body) || empty($body["name"]) || empty($body["email"]) || empty($body["phone_number"] || empty($body["password"]))) {
+	if (empty($body) || empty($body["name"]) || empty($body["email"]) || empty($body["phone_number"] || empty($body["password"]))) {
             return array("message" => "not enough data!", "status" => 400);
         }
 
