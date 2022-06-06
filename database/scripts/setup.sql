@@ -15,12 +15,10 @@ CREATE TABLE customer (
 	id INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,
     name VARCHAR(80) NOT NULL,
     email VARCHAR(320) NOT NULL ,
+    cpf VARCHAR(20) not null unique,
     phone_number VARCHAR(16) NOT NULL,
     password VARCHAR(32)
 );
-
-ALTER TABLE customer 
-	MODIFY email VARCHAR(320) NOT NULL UNIQUE;
 
 # VEHICLE COLOUR ->
 CREATE TABLE IF NOT EXISTS vehicle_colour (
