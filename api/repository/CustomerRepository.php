@@ -42,9 +42,10 @@ class CustomerRepository {
     } 
 
     function create( array $body ) {
-        $query = "INSERT INTO customer (name, email, phone_number, password) values (
+        $query = "INSERT INTO customer (name, email, cpf, phone_number, password) values (
                         '". $body["name"] ."',
                         '". $body["email"] ."',
+                        '". $body["cpf"] ."',
                         '". $body["phone_number"] ."',
                         '". $body["password"] ."')";
         
