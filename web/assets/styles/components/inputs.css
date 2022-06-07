@@ -21,7 +21,7 @@
 
     background-color: var(--dark-variant);
 
-    transition: border .25s ease-out;
+    transition: border 0.25s ease-out;
 }
 
 .input-field > input:focus {
@@ -29,7 +29,8 @@
     border-color: var(--primary);
 }
 
-.btn, button {
+.btn,
+button {
     width: 100%;
     max-width: 200px;
     height: 42px;
@@ -53,7 +54,7 @@
     text-transform: uppercase;
     color: var(--dark);
 
-    transition: filter .25s ease-out;
+    transition: filter 0.25s ease-out;
 }
 
 .negative-btn {
@@ -63,16 +64,17 @@
     text-transform: uppercase;
     color: var(--dark);
 
-    transition: filter .25s ease-out;
+    transition: filter 0.25s ease-out;
 }
 
 .btn:hover,
 button:hover {
-    filter: brightness(.8);
+    filter: brightness(0.8);
 }
 
 button:disabled {
-    opacity: .5;
+    opacity: 0.3;
+    background-color: var(--gray);
     cursor: not-allowed;
     pointer-events: all !important;
 }
