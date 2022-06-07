@@ -21,6 +21,9 @@ main {
 }
 
 .form-container {
+    opacity: 0;
+    animation: fade-up 0.5s ease-out 0.25s forwards;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,6 +46,9 @@ main {
 }
 
 .data-view {
+    opacity: 0;
+    animation: fade-up 0.5s ease-out 0.25s forwards;
+
     width: 100%;
     max-height: 90%;
     overflow-y: auto;

@@ -24,6 +24,9 @@ main {
 }
 
 .card {
+    opacity: 0;
+    animation: fade-up 0.5s ease-out 0.25s forwards;
+
     width: clamp(200px, 20vw, 400px);
     aspect-ratio: 1/1;
     padding: 24px;

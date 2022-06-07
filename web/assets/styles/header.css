@@ -1,4 +1,7 @@
 header {
+    opacity: 0;
+    animation: fade-in 1s ease-out 0s forwards;
+
     display: flex;
     width: 100%;
     height: fit-content;
