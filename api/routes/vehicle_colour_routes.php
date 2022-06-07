@@ -5,7 +5,7 @@ use Slim\Http\Response;
 
 require_once "controller/VehicleColourController.php";
 
-$app->get('/v1/vehicle-colours/',  function (Request $request, Response $response, array $args) {
+$app->get('/v1/vehicle-colours',  function (Request $request, Response $response, array $args) {
     
     $controller = new VehicleColourController();
 
