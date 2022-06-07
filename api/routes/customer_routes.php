@@ -25,6 +25,12 @@ $app->get("/v1/customers/{id}",  function (Request $request, Response $response,
     return $controller->getById($request, $response, $args);
 });
 
+$app->put("/v1/customers/{id}",  function (Request $request, Response $response, array $args) {
+    $controller = new CustomerController();
+
+    return $controller->update($request, $response, $args);
+});
+
 $app->post('/v1/customers/',  function (Request $request, Response $response, array $args) {
     $controller = new CustomerController();
 

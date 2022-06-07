@@ -65,4 +65,21 @@ class CustomerRepository {
 
         return array("message" => "successfully deleted customer", "status" => 200); 
     }
+
+    function update($id, $body) {
+        $query = "UPDATE customer SET
+                    name = '". $body["name"] ."',
+                    email = '". $body["email"] ."',
+                    cpf = '". $body["cpf"] ."',
+                    password = '". $body["password"] ."',
+                    phone_number = '". $body["phone_number"] ."'
+                    where id = $id;";
+
+        $queryRes = $this->db->query($query);
+
+        // if there's an error in the database side we'll just return the error messsage with status 400
+        if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
+
+        return array("message" => "successfully updated customer", "status" => 200);
+    }
 }

@@ -14,8 +14,8 @@ use db_fastparking;
 CREATE TABLE customer (
 	id INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,
     name VARCHAR(80) NOT NULL,
-    email VARCHAR(320) NOT NULL ,
-    cpf VARCHAR(20) not null unique,
+    email VARCHAR(320) NOT NULL UNIQUE,
+    cpf VARCHAR(20) NOT NULL UNIQUE,
     phone_number VARCHAR(16) NOT NULL,
     password VARCHAR(32)
 );
@@ -73,7 +73,8 @@ CREATE TABLE vehicle (
     
     CONSTRAINT FK_vehicle__customer_id
     FOREIGN KEY (customer_id)
-    REFERENCES customer(id)
+    REFERENCES customer(id) 
+    ON DELETE CASCADE
 );
 
 # VEHICLE_IN_OUT ->

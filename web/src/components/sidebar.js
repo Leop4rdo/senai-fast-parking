@@ -20,12 +20,18 @@ class Sidebar extends HTMLElement {
 
         const styles = `
             .sidebar {
-                height: 100vh;
+                height: 90vh;
                 width: clamp(60px, 7.5vw, 120px);
             
                 background-color: var(--dark);
             
-                padding: clamp(20px, 5vh, 50px) 0;
+                padding: 5vh 0;
+
+                border-right: dashed 2px var(--primary);
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
             }
             
             .sidebar-nav {
@@ -81,31 +87,37 @@ class Sidebar extends HTMLElement {
         side.innerHTML = `
             <nav class="sidebar-nav">
                 <div class="nav-item ${this.activeIndex == "0" ? "active" : ""}">
-                    <a href="/">
+                    <a href="users.html">
                         <img src="assets/icons/users-${this.activeIndex == 0 ? "yellow" : "white"}.png" alt="usuarios" />
                     </a>
                 </div>
                 <div class="nav-item ${this.activeIndex == "1" ? "active" : ""}">
-                    <a href="/">
+                    <a href="vehicles.html">
                         <img src="assets/icons/vehicle-${this.activeIndex == 1 ? "yellow" : "white"}.png" alt="usuarios" />
                     </a>
                 </div>
                 <div class="nav-item ${this.activeIndex == "2" ? "active" : ""}">
-                    <a href="/">
+                    <a href="parking.html">
                         <img src="assets/icons/parking-${this.activeIndex == 2 ? "yellow" : "white"}.png" alt="usuarios" />
                     </a>
                 </div>
                 <div class="nav-item ${this.activeIndex == "3" ? "active" : ""}">
-                    <a href="/">
+                    <a href="in-out.html">
                         <img src="assets/icons/in-out-${this.activeIndex == 3 ? "yellow" : "white"}.png" alt="usuarios" />
                     </a>
                 </div>
                 <div class="nav-item ${this.activeIndex == "4" ? "active" : ""}">
-                    <a href="/">
+                    <a href="dashboard.html">
                         <img src="assets/icons/dashboard-${this.activeIndex == 4 ? "yellow" : "white"}.png" alt="usuarios" />
                     </a>
                 </div>
             </nav>
+
+            <div class="nav-item">
+                <a href="index.html">
+                    <img src="assets/icons/logout-white.png" alt="sair" />
+                </a>
+            </div>
         `;
 
         return side;
