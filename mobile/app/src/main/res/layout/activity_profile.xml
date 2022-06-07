@@ -88,7 +88,7 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo2"
+        android:src="@drawable/fastparking_logo"
         app:layout_constraintBottom_toTopOf="@+id/h"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +122,7 @@
             android:id="@+id/btnEditar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/black_fade"
+            android:background="@color/faded_black"
             android:text="@string/btn_editar"
             android:textSize="12sp"
             android:layout_marginTop="95dp"
@@ -222,7 +222,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/laranja_claro"
+            android:backgroundTint="@color/primary_yellow"
             android:text="@string/btn_salvar"
             android:textColor="@color/cinza_super_escuro" />
 
@@ -231,7 +231,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:backgroundTint="@color/laranja_claro"
+            android:backgroundTint="@color/primary_yellow"
             android:text="@string/btn_voltar"
             android:textColor="@color/cinza_super_escuro" />
 
@@ -241,7 +241,7 @@
         android:id="@+id/previousBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:background="transparent"
+        android:background="@android:color/transparent"
         android:text="@string/btn_sair"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

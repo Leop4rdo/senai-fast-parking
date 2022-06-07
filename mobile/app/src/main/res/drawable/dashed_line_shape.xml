@@ -4,8 +4,8 @@
     android:shape="line">
 
     <stroke
-        android:color="@color/laranja_claro"
-        android:dashWidth="10px"
+        android:color="@color/primary_yellow"
+        android:dashWidth="20px"
         android:dashGap="10px"
         android:width="3dp"
         android:height="50dp"

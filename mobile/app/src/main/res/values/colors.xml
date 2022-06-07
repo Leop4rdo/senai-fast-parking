@@ -7,11 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="laranja_claro">#FAAA62</color>
-    <color name="laranja_escuro">#FAAA62</color>
+    <color name="primary_yellow">#EBCB8B</color>
     <color name="cinza_claro">#ACACAC</color>
     <color name="cinza_medio">#6F7274</color>
-    <color name="cinza_escuro">#2C3134</color>
-    <color name="cinza_super_escuro">#1C1F21</color>
-    <color name="black_fade">#7E000000</color>
+    <color name="cinza_escuro">#3B4252</color>
+    <color name="cinza_super_escuro">#2E3440</color>
+    <color name="faded_black">#7E000000</color>
 </resources>

@@ -158,4 +158,9 @@ VALUES				(
                      1,
                      3
                     );
+
+show tables;
+
+desc vehicle;
+select * from vehicle;
                             
