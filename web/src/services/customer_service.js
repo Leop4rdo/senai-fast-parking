@@ -13,8 +13,6 @@ export const createCustomer = async (user) => {
         mode: "cors"
     }
 
-    console.log(config);
-
     const res = await fetch(`${baseURL}/customers/`, config);
     return await res.json() 
 }
@@ -25,4 +23,18 @@ export const deleteCustomer = async (id) => {
     const res = await fetch(`${baseURL}/customers/${id}`, options);
 
     return res.ok;
+}
+
+export const updateCustomer = async (customer, id) => {
+    const config = {
+        method: 'PUT',
+        body: JSON.stringify(customer),
+        headers: {
+            "content-type": "application/json",
+        },
+        mode: "cors"
+    }
+
+    const res = await fetch(`${baseURL}/customers/${id}`, config);
+    return await res.json() 
 }

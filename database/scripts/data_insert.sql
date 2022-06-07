@@ -10,8 +10,6 @@
 use db_fastparking;
 
 # CUSTOMER ->
-
-
 INSERT INTO customer ( name, email, cpf, phone_number, password ) VALUES 
 	('John Doe', 'johndoe@gmail.com', "444.333.222-11", '11963677923', 'senha123'),
     ('Jane Doe', 'janedow@gmail.com', "555.444.333-22", '11963677923', 'senha123'),

@@ -56,7 +56,23 @@
     transition: filter .25s ease-out;
 }
 
+.negative-btn {
+    background-color: var(--red);
+
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: var(--dark);
+
+    transition: filter .25s ease-out;
+}
+
 .btn:hover,
 button:hover {
     filter: brightness(.8);
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    pointer-events: all !important;
 }

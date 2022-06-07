@@ -1,7 +1,5 @@
 table {
     width: 80%;
-    max-height: 10vh;
-    overflow-y: auto;
 }
 
 tr {

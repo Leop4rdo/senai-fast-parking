@@ -1,7 +1,7 @@
 "use strict";
 
 import { fetchData } from "../services/fetch_data.js";
-import { createCustomer, deleteCustomer } from "../services/customer_service.js";
+import { createCustomer, updateCustomer } from "../services/customer_service.js";
 
 const container = document.getElementById("data-view-table");
 
@@ -16,10 +16,9 @@ const renderUsers = async () => {
         row.innerHTML = `
             <td class="table-item">${user.name}</td>
             <td class="table-item">${user.email}</td>
-            <td class="table-item">096.676.210-06</td>
+            <td class="table-item">${user.cpf}</td>
             <td class="table-item">${user.phone_number}</td>
             <td class="table-item options">
-                <div class="delete-btn" ><span class="material-icons" id="delete-${user.id}">delete</span></div>
                 <div class="edit-btn"><span class="material-icons" id="edit-${user.id}">edit</span></div>
             </td>
         `;
@@ -43,38 +42,84 @@ const getTableHeader = () => {
 
 const onFormSubmit = async (e) => {
     e.preventDefault();
+    document.getElementById("user-form").reportValidity();
 
-    const user = {
+    const btnDataset = document.getElementById("submit-btn").dataset;
+
+    const _id = btnDataset.id || "";
+
+    const customer = {
         name : document.getElementById("name").value,
         email : document.getElementById("email").value,
         phone_number : document.getElementById("phone").value,
+        cpf : document.getElementById("cpf").value,
         password : document.getElementById("password").value
     }
 
-    console.log(JSON.stringify(user));
-
-    const res = await createCustomer(user);
+    try {
+        if (_id === "") {
+            await createCustomer(user);
+        } else {
+            await updateCustomer(customer, _id);
+        
+            setEditing(false);
+        }
+    } catch (err) {
+        alert(err.message)
+    }
     
-    alert(res.message);
-
     renderUsers();
 }
 
 const handleClick = async (e) => {
     const { target } = e;
 
-
     const [ action, id ] = target.id.split("-");
 
-    console.log(action)
+    if (action == "edit") {
+        const res = await fetchData(`customers/${id}`);
+        const customer = res.data;
+        
+        fillForm(customer);
+        document.getElementById("submit-btn").dataset.id = id;
+    }
+}
 
-    if (action == "delete") {
-        if (!confirm("Deseja mesmo excluir esse cliente?")) return;
+const fillForm = (customer) => {
+    document.getElementById("name").value = customer.name;
+    document.getElementById("email").value = customer.email;
+    document.getElementById("phone").value = customer.phone_number;
+    document.getElementById("cpf").value = customer.cpf;
+    document.getElementById("password").value = customer.password;
 
-        const res = await deleteCustomer(id);
-        await renderUsers();
+    setEditing(true);
+}
 
-        if (!res) alert("error na exclusão");
+const cleanForm = () => {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("cpf").value = "";
+    document.getElementById("password").value = "";
+}
+
+const onCancel = (e) => {
+    e.preventDefault();
+
+    setEditing(false);
+}
+
+const setEditing = (isEditing) => {
+    const confirmBtn = document.getElementById('submit-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+
+    if (isEditing) {
+        cancelBtn.disabled = false;
+        confirmBtn.innerText = "editar";
+    } else {
+        cancelBtn.disabled = true;
+        confirmBtn.innerText = "cadastrar";
+        cleanForm();
     }
 }
 
@@ -83,4 +128,5 @@ const handleClick = async (e) => {
 renderUsers();
 
 document.getElementById("user-form").addEventListener("submit", onFormSubmit);
+document.getElementById('cancel-btn').addEventListener("click", onCancel);
 document.getElementById("data-view-table").addEventListener("click", handleClick);
