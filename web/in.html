@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>administração - Fast Parking</title>
+
+        <!-- Loading CSS -->
+        <link rel="stylesheet" href="./assets/styles/reset.css" />
+        <link rel="stylesheet" href="./assets/styles/pages/base_page.css" />
+        <link rel="stylesheet" href="./assets/styles/header.css" />
+        <link rel="stylesheet" href="./assets/styles/components/inputs.css" />
+
+        <!-- Google Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+        <!-- Loading custom components -->
+        <script src="./src/components/sidebar.js" defer></script>
+    </head>
+    <body>
+        <sidebar-component data-active-index="3"></sidebar-component>
+        <main>
+            <header>
+                <h1>Cadastro de usuários</h1>
+                <img src="assets/logo.png" alt="" />
+            </header>
+
+            <div class="content">
+                <div class="form-container">
+                    <form autocomplete="off" id="user-form">
+                        <div class="input-field">
+                            <label for="cpf">CPF do cliente</label>
+                            <input type="text" id="cpf" required />
+                        </div>
+                        <div class="input-field">
+                            <label for="vehicle">Placa do veiculo</label>
+                            <select id="vehicle" required></select>
+                        </div>
+                        <div class="input-field">
+                            <label for="parking-spot">Vaga</label>
+                            <select id="vehicle" required></select>
+                        </div>
+
+                        <button class="primary-btn" id="submit-btn">cadastrar</button>
+                        <button class="negative-btn" id="cancel-btn" disabled>cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
