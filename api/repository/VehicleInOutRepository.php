@@ -38,8 +38,8 @@ class VehicleInOutRepository {
     }
 
     function create( array $body ) {
-        $query = "INSERT INTO vehicle_in_out (entrance_time, vehicle_id, parking_spot_id) values (
-            '". $body["entrance_time"]."', ". $body["vehicle_id"] .", ". $body["vehicle_id"] ."
+        $query = "INSERT INTO vehicle_in_out (vehicle_id, parking_spot_id) values (
+            ". $body["vehicle_id"] .", ". $body["vehicle_id"] ."
         );";
 
         $this->db->query($query);
