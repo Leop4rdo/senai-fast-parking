@@ -43,6 +43,11 @@ main {
     justify-content: center;
     align-items: center;
     gap: 24px;
+
+    border-width: 2px;
+    border-style: dashed;
+    border-color: var(--primary);
+    border-radius: 16px;
 }
 
 .data-view {
