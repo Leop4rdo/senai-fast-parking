@@ -20,7 +20,7 @@
         <script src="./src/components/sidebar.js" defer></script>
 
         <!-- Loading JS -->
-        <script src="./src/pages/users.js" defer type="module"></script>
+        <script src="./src/pages/vehicle.js" type="module" defer></script>
     </head>
     <body>
         <sidebar-component data-active-index="1"></sidebar-component>
@@ -32,22 +32,22 @@
 
             <div class="row-container">
                 <div class="form-container">
-                    <form autocomplete="off" id="user-form">
+                    <form autocomplete="off" id="vehicle-form">
                         <div class="input-field">
                             <label for="licensePlate">Placa</label>
                             <input type="text" id="licensePlate" required />
                         </div>
                         <div class="input-field">
                             <label for="type">Tipo</label>
-                            <input type="text" id="type" required />
+                            <select id="type" required></select>
                         </div>
                         <div class="input-field">
                             <label for="color">Cor</label>
-                            <input type="text" id="color" required />
+                            <select id="color" required></select>
                         </div>
                         <div class="input-field">
                             <label for="model">Modelo</label>
-                            <input type="text" id="model" required />
+                            <select id="model" required></select>
                         </div>
                         <div class="input-field">
                             <label for="CPF">CPF do cliente</label>
@@ -55,6 +55,7 @@
                         </div>
 
                         <button class="primary-btn" id="submit-btn">cadastrar</button>
+                        <button class="negative-btn" id="cancel-btn" disabled>cancelar</button>
                     </form>
                 </div>
                 <div class="data-view">

@@ -5,38 +5,38 @@ import { createCustomer, updateCustomer } from "../services/customer_service.js"
 
 const container = document.getElementById("data-view-table");
 
-const renderUsers = async () => {
-    const users = await fetchData("customers");
+const updateTable = async () => {
+    const vehicles = await fetchData("vehicles");
 
-    const usersRows = [getTableHeader()];
+    const rows = [getTableHeader()];
 
-    usersRows.push(
-        ...users.data.map((user) => {
+    rows.push(
+        ...vehicles.data.map((vehicle) => {
             const row = document.createElement("tr");
 
             row.innerHTML = `
-            <td class="table-item">${user.name}</td>
-            <td class="table-item">${user.email}</td>
-            <td class="table-item">${user.cpf}</td>
-            <td class="table-item">${user.phone_number}</td>
-            <td class="table-item options">
-                <div class="edit-btn"><span class="material-icons" id="edit-${user.id}">edit</span></div>
-            </td>
-        `;
+                <td class="table-item">${vehicle.plate}</td>
+                <td class="table-item">${vehicle.model.name}</td>
+                <td class="table-item">${vehicle.colour.name}</td>
+                <td class="table-item">${vehicle.customer.name}</td>
+                <td class="table-item options">
+                    <div class="edit-btn"><span class="material-icons" id="edit-${vehicle.id}">edit</span></div>
+                </td>
+            `;
             return row;
         })
     );
 
-    container.replaceChildren(...usersRows);
+    container.replaceChildren(...rows);
 };
 
 const getTableHeader = () => {
     const header = document.createElement("tr");
     header.innerHTML = `
-        <th class="table-header">Nome</th>
-        <th class="table-header">Email</th>
-        <th class="table-header">CPF</th>
-        <th class="table-header">Telefone</th>
+        <th class="table-header">Placa</th>
+        <th class="table-header">Modelo</th>
+        <th class="table-header">Cor</th>
+        <th class="table-header">Dono</th>
         <th class="table-header">Opções</th>
     `;
     return header;
@@ -71,7 +71,7 @@ const onFormSubmit = async (e) => {
     }
 
     clearForm();
-    renderUsers();
+    updateTable();
 };
 
 const handleClick = async (e) => {
@@ -127,8 +127,8 @@ const setEditing = (isEditing) => {
 };
 
 // events
-renderUsers();
+updateTable();
 
-document.getElementById("user-form").addEventListener("submit", onFormSubmit);
+document.getElementById("vehicle-form").addEventListener("submit", onFormSubmit);
 document.getElementById("cancel-btn").addEventListener("click", onCancel);
 document.getElementById("data-view-table").addEventListener("click", handleClick);
