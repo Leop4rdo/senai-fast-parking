@@ -16,7 +16,7 @@
         android:layout_height="137dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="40dp"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/fastparking_logo" />
 
     <EditText
         android:id="@+id/editTextUsuario"
@@ -47,7 +47,7 @@
         android:layout_width="103dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/laranja_claro"
+        android:backgroundTint="@color/primary_yellow"
         android:text="@string/btn_entrar"
         android:textColor="@color/cinza_super_escuro" />
 

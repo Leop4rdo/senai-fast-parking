@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_200">#000000</color>
+    <color name="purple_500">#000000</color>
+    <color name="purple_700">#000000</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -12,7 +12,6 @@
     <color name="cinza_medio">#6F7274</color>
     <color name="cinza_escuro">#3B4252</color>
     <color name="cinza_super_escuro">#2E3440</color>
-    <color name="faded_black">#7E000000</color>
-    <color name="black_fade">#7E000000</color>
+    <color name="faded_black">#41000000</color>
     <color name="transparent">#00000000</color>
 </resources>

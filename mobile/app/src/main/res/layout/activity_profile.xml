@@ -122,7 +122,7 @@
             android:id="@+id/btnEditar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/faded_black"
+            android:backgroundTint="@color/faded_black"
             android:text="@string/btn_editar"
             android:textSize="12sp"
             android:layout_marginTop="95dp"
@@ -238,7 +238,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/previousBtn"
+        android:id="@+id/exitBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"

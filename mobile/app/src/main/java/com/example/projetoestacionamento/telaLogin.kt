@@ -1,5 +1,6 @@
 package com.example.projetoestacionamento
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.projetoestacionamento.databinding.ActivityLoginBinding
@@ -19,7 +20,8 @@ class telaLogin : AppCompatActivity() {
         setContentView(view)
 
         binding.btnEntrar.setOnClickListener{
-
+            val intent = Intent(this, telaCards::class.java)
+            startActivity(intent)
         }
 
         }
