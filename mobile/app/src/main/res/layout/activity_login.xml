@@ -26,6 +26,7 @@
         android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="@string/edit_usuario"
+        android:textColor="@color/white"
         android:inputType="textPersonName"
         android:textColorHint="@color/white" />
 
@@ -33,27 +34,28 @@
         android:id="@+id/editTextSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="@string/edit_senha"
         android:inputType="textPassword"
-        android:backgroundTint="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_marginBottom="20dp"/>
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <Button
         android:id="@+id/btnEntrar"
-        android:layout_width="wrap_content"
+        android:layout_width="103dp"
         android:layout_height="wrap_content"
-        android:text="@string/btn_entrar"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/laranja_claro"
-        android:textColor="@color/cinza_super_escuro"
-        android:layout_marginBottom="40dp"/>
+        android:text="@string/btn_entrar"
+        android:textColor="@color/cinza_super_escuro" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_ou"
-        android:textColor="@color/white"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="100dp"
+        android:text="@string/text_warning"
+        android:textColor="@color/white" />
 
 </LinearLayout>

@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: clamp(200px, 40vw, 350px);
+}
+
+.login-container {
+    width: clamp(350px, 40vw, 450px);
+    padding: 24px;
+
+    background-color: var(--dark);
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(15px, 2vw, 25px);
+}
+
+h1 {
+    font-size: clamp(2rem, 2.5vw, 3rem);
+    color: var(--primary);
+}
+
+.login-container form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}

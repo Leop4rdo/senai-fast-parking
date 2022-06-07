@@ -13,4 +13,6 @@
     <color name="cinza_escuro">#3B4252</color>
     <color name="cinza_super_escuro">#2E3440</color>
     <color name="faded_black">#7E000000</color>
+    <color name="black_fade">#7E000000</color>
+    <color name="transparent">#00000000</color>
 </resources>

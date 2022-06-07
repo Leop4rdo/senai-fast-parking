@@ -40,7 +40,7 @@ class CustomerService {
     }
 
     function create($body) {
-        if (empty($body) || empty($body["name"]) || empty($body["email"]) || empty($body["phone_number"] || empty($body["password"]))) {
+        if (empty($body) || empty($body["name"]) || empty($body["email"]) || empty($body["phone_number"] || empty($body["password"]) || empty($body["cpf"]))) {
             return array("message" => "not enough data!", "status" => 400);
         }
 
@@ -62,5 +62,20 @@ class CustomerService {
         $res = $this->repository->delete($id);
 
         return array("message" => $res["message"], "status" => $res["status"]);
+    }
+
+    function update($body, $id) {
+        if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
+
+        if (empty($body) || empty($body["name"]) || empty($body["email"]) || empty($body["phone_number"] || empty($body["password"]) || empty($body["cpf"]))) {
+            return array("message" => "not enough data!", "status" => 400);
+        }
+        
+        // if customer does not exists
+        $customer = $this->repository->find("id", $id);
+        if ( count($customer) === 0 ) return array("message" => "customer does not exists in database!", "status" => 400);
+
+        // updating customer ->
+        return $res = $this->repository->update($id, $body);
     }
 }
