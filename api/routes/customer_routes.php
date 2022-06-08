@@ -16,7 +16,10 @@ require_once "controller/CustomerController.php";
 $app->get('/v1/customers',  function (Request $request, Response $response, array $args) {
     $controller = new CustomerController();
 
-    return $controller->getAll($request, $response, $args);
+    if( $request->getQueryParam("cpf") > 0 )
+        return $controller->getByCpf($request, $response, $args);
+    else 
+        return $controller->getAll($request, $response, $args);
 });
 
 $app->get("/v1/customers/{id}",  function (Request $request, Response $response, array $args) {

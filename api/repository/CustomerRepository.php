@@ -26,7 +26,7 @@ class CustomerRepository {
     }
 
     function find($param, $value) {
-        $query = "SELECT * FROM customer where $param = $value";
+        $query = "SELECT * FROM customer where $param = '$value'";
 
         $queryRes = $this->db->query($query);
 
