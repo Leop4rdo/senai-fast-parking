@@ -4,7 +4,7 @@ use Slim\Http\Response;
 
 require_once "controller/VehicleTypeController.php";
 
-$app->get("/v1/vehicle-types/",  function (Request $request, Response $response, array $args) {
+$app->get("/v1/vehicle-types",  function (Request $request, Response $response, array $args) {
     $controller = new VehicleTypeController();
 
     return $controller->getAll($request, $response, $args);

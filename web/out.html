@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>administração - Fast Parking</title>
+
+        <!-- Loading CSS -->
+        <link rel="stylesheet" href="./assets/styles/reset.css" />
+        <link rel="stylesheet" href="./assets/styles/utils/animations.css" />
+
+        <link rel="stylesheet" href="./assets/styles/pages/base_page.css" />
+        <link rel="stylesheet" href="./assets/styles/header.css" />
+        <link rel="stylesheet" href="./assets/styles/components/inputs.css" />
+        <link rel="stylesheet" href="./assets/styles/components/table.css" />
+
+        <!-- Google Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+        <!-- Loading custom components -->
+        <script src="./src/components/sidebar.js" defer></script>
+    </head>
+    <body>
+        <sidebar-component data-active-index="3"></sidebar-component>
+        <main>
+            <header>
+                <h1>Cadastro de usuários</h1>
+                <img src="assets/logo.png" alt="" />
+            </header>
+
+            <div class="row-container">
+                <div class="data-view">
+                    <h3>Selecione um veiculo</h3>
+                    <table id="data-view-table">
+                        <tr>
+                            <th class="table-header">placa</th>
+                            <th class="table-header">modelo</th>
+                            <th class="table-header">cor</th>
+                        </tr>
+                    </table>
+                    <a class="btn primary-btn" href="confirmation.html">continuar</a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

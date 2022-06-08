@@ -17,7 +17,8 @@ CREATE TABLE customer (
     email VARCHAR(320) NOT NULL UNIQUE,
     cpf VARCHAR(20) NOT NULL UNIQUE,
     phone_number VARCHAR(16) NOT NULL,
-    password VARCHAR(32)
+    password VARCHAR(32),
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 # VEHICLE COLOUR ->
@@ -81,7 +82,7 @@ CREATE TABLE vehicle (
 CREATE TABLE vehicle_in_out (
 	id INT UNSIGNED NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,
     total_price DOUBLE UNSIGNED,
-    entrance_time DATETIME NOT NULL,
+    entrance_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     exit_time DATETIME,
     vehicle_id INT UNSIGNED NOT NULL,
     parking_spot_id INT UNSIGNED NOT NULL,

@@ -53,7 +53,7 @@ class VehicleService {
 
         // if (empty($params) || empty($params['customer'])  );
 
-        $res = $this->repository->findByCostumerId("customer_id", $id);
+        $res = $this->repository->find("customer_id", $id);
 
         // if no data is returned
         if (count($res) === 0) return array("message" => "data not found!", "status" => 404);

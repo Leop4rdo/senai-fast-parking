@@ -11,7 +11,28 @@ class VehicleRepository {
  
     function list() {
         
-        $query = "SELECT * FROM vehicle ORDER BY id ASC";
+        // $query = "SELECT * FROM vehicle ORDER BY id ASC";
+
+        $query = "
+            select 
+                vehicle.id, vehicle.plate, 
+                vehicle.vehicle_colour_id as colour_id, 
+                vehicle_colour.name as colour,
+                vehicle.vehicle_model_id as model_id,
+                vehicle_model.name as model,
+                vehicle.customer_id,
+                customer.name as customer_name,
+                customer.email as customer_email,
+                customer.cpf as customer_cpf,
+                customer.phone_number as customer_phone_number
+            from vehicle
+                inner join vehicle_colour
+                    on vehicle.vehicle_colour_id = vehicle_colour.id
+                inner join vehicle_model
+                    on vehicle_model.id = vehicle.vehicle_model_id
+                inner join customer
+                    on customer.id = vehicle.customer_id;
+        ";
 
         $queryRes = $this->db->query($query);
 
@@ -19,7 +40,9 @@ class VehicleRepository {
 
         $res = array();
         while ($row = $queryRes->fetch_assoc()) {
-            $res[] = $row;
+            // $res[] = $row;
+
+            $res[] = $this->formatRecord($row);
         }
 
         return $res;
@@ -27,23 +50,27 @@ class VehicleRepository {
 
     function find($param, $value) {
         
-        $query = "SELECT * FROM vehicle WHERE $param = $value";
-
-        $queryRes = $this->db->query($query);
-
-        if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
-
-        $res = array();
-        if ($row = $queryRes->fetch_assoc()) {
-            $res = $row;
-        }
-
-        return $res;
-    }
-
-    function findByCostumerId($param, $value) {
-        
-        $query = "SELECT * FROM vehicle WHERE $param = $value";
+        $query = "
+            select 
+                vehicle.id, vehicle.plate, 
+                vehicle.vehicle_colour_id as colour_id, 
+                vehicle_colour.name as colour,
+                vehicle.vehicle_model_id as model_id,
+                vehicle_model.name as model,
+                vehicle.customer_id,
+                customer.name as customer_name,
+                customer.email as customer_email,
+                customer.cpf as customer_cpf,
+                customer.phone_number as customer_phone_number
+            from vehicle
+                inner join vehicle_colour
+                    on vehicle.vehicle_colour_id = vehicle_colour.id
+                inner join vehicle_model
+                    on vehicle_model.id = vehicle.vehicle_model_id
+                inner join customer
+                    on customer.id = vehicle.customer_id
+            where vehicle.$param = $value;
+        ";
 
         $queryRes = $this->db->query($query);
 
@@ -51,7 +78,7 @@ class VehicleRepository {
 
         $res = array();
         while ($row = $queryRes->fetch_assoc()) {
-            $res[] = $row;
+            $res[] = $this->formatRecord($row);
         }
 
         return $res;
@@ -97,6 +124,27 @@ class VehicleRepository {
         return array("message" => "successfully updated vehicle", "status" => 200); 
     }
 
+    function formatRecord($record) {
+        return array(
+            "id" => $record["id"],
+            "plate" => $record["plate"],
+            "colour" => array(
+                "id" => $record["colour_id"],
+                "name" => $record["colour"],
+            ),
+            "model" => array(
+                "id" => $record["model_id"],
+                "name" => $record["model"]
+            ),
+            "customer" => array(
+                "id"  => $record["customer_id"],
+                "name" => $record["customer_name"],
+                "email" => $record["customer_email"],
+                "cpf" => $record["customer_cpf"],
+                "phone_number" => $record["customer_phone_number"]
+            )
+        );
+    }
 }
 
 ?>
