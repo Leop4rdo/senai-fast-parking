@@ -29,7 +29,7 @@ class DataDisplayActivity : AppCompatActivity() {
         val intent: Intent = getIntent()
         vehicleId = intent.getIntExtra("vehicleId", 0)
 
-        displayData(vehicleId)
+//        displayData(vehicleId)
 
         val profileBtn = findViewById<ImageButton>(R.id.userProfile)
 
@@ -46,29 +46,29 @@ class DataDisplayActivity : AppCompatActivity() {
 
     }
 
-    private fun displayData(id : Int) {
-        val url = "http://localhost/projects/senai-fast-parking/api"
-        val retrofitClient = retrofitInstance(url)
-        val endpoint = retrofitClient.create(Endpoint::class.java)
-
-        endpoint.getData(id).enqueue(object : Callback<JsonObject> {
-
-            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-                TODO("Not yet implemented")
-                val customerId = response.body()?.get("data")?.asJsonObject
-
-                val dataTextView = findViewById<TextView>(R.id.customerName)
-                dataTextView.setText(customerId.plate.toString())
-
-            }
-
-            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
-                Toast.makeText(applicationContext, "Erro ao exibir os dados!", Toast.LENGTH_LONG)
-            }
-
-        })
-
-    }
+//    private fun displayData(id : Int) {
+//        val url = "http://localhost/projects/senai-fast-parking/api"
+//        val retrofitClient = retrofitInstance(url)
+//        val endpoint = retrofitClient.create(Endpoint::class.java)
+//
+//        endpoint.getData(id).enqueue(object : Callback<JsonObject> {
+//
+//            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+//                TODO("Not yet implemented")
+//                val customerId = response.body()?.get("data")?.asJsonObject
+//
+//                val dataTextView = findViewById<TextView>(R.id.customerName)
+//                dataTextView.setText(customerId.plate.toString())
+//
+//            }
+//
+//            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+//                Toast.makeText(applicationContext, "Erro ao exibir os dados!", Toast.LENGTH_LONG)
+//            }
+//
+//        })
+//
+//    }
 
     private fun retrofitInstance(url: String): Retrofit {
         return Retrofit
