@@ -86,7 +86,7 @@
         />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logoImageView"
         android:layout_width="400dp"
         android:layout_height="110dp"
         app:layout_constraintBottom_toTopOf="@+id/h"
@@ -183,6 +183,7 @@
             />
 
         <TextView
+            android:id="@+id/carPlate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -368,6 +369,14 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/primary_yellow"
             android:text="@string/btn_voltar"
+            android:textColor="@color/cinza_super_escuro" />
+
+        <Button
+            android:id="@+id/debugBtn"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary_yellow"
+            android:text="debug"
             android:textColor="@color/cinza_super_escuro" />
 
     </LinearLayout>

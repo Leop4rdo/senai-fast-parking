@@ -9,11 +9,14 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        val previousBtn = findViewById<Button>(R.id.btnVoltar)
-
+        val previousBtn = findViewById<Button>(R.id.previousBtn)
         previousBtn.setOnClickListener{
             finish()
         }
 
+        val exitBtn = findViewById<Button>(R.id.exitBtn)
+        exitBtn.setOnClickListener{
+            finishAffinity()
+        }
     }
 }

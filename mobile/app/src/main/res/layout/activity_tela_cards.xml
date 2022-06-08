@@ -45,7 +45,7 @@
         <ImageButton
             android:id="@+id/userProfile"
             android:layout_width="match_parent"
-            android:layout_height="57dp"
+            android:layout_height="match_parent"
             android:src="@mipmap/user" />
 
     </androidx.cardview.widget.CardView>
@@ -202,7 +202,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/sair"
+        android:id="@+id/exitBtn"
         android:layout_width="91dp"
         android:layout_height="41dp"
         android:layout_gravity="end"
