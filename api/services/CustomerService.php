@@ -39,6 +39,21 @@ class CustomerService {
         return array("data" => $res, "status" => 200);
     }
 
+    function findByCpf($cpf) {
+
+        if ($cpf < 0) return array("message" => "Invalid cpf!", "status" => 400);
+
+        $res = $this->repository->find("cpf", $cpf);
+
+        // if no data is returned
+        if (count($res) === 0) return array("message" => "data not found!", "status" => 404);
+
+        // catch errors in repository
+        if (!empty($res["status"])) return array("message" => $res["message"], "status" => $res["status"]);
+
+        return array("data" => $res, "status" => 200);
+    }
+
     function create($body) {
         if (empty($body) || empty($body["name"]) || empty($body["email"]) || empty($body["phone_number"] || empty($body["password"]) || empty($body["cpf"]))) {
             return array("message" => "not enough data!", "status" => 400);

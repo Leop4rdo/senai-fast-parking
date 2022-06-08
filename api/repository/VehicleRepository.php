@@ -14,24 +14,29 @@ class VehicleRepository {
         // $query = "SELECT * FROM vehicle ORDER BY id ASC";
 
         $query = "
-            select 
+            SELECT 
                 vehicle.id, vehicle.plate, 
-                vehicle.vehicle_colour_id as colour_id, 
-                vehicle_colour.name as colour,
-                vehicle.vehicle_model_id as model_id,
-                vehicle_model.name as model,
+                vehicle.vehicle_colour_id AS colour_id, 
+                vehicle_colour.name AS colour,
+                vehicle.vehicle_model_id AS model_id,
+                vehicle_model.name AS model,
                 vehicle.customer_id,
-                customer.name as customer_name,
-                customer.email as customer_email,
-                customer.cpf as customer_cpf,
-                customer.phone_number as customer_phone_number
-            from vehicle
-                inner join vehicle_colour
+                customer.name AS customer_name,
+                customer.email AS customer_email,
+                customer.cpf AS customer_cpf,
+                customer.phone_number AS customer_phone_number,
+                vehicle.vehicle_type_id,
+                vehicle_type.name AS type
+            FROM vehicle
+                INNER JOIN vehicle_colour
                     on vehicle.vehicle_colour_id = vehicle_colour.id
-                inner join vehicle_model
+                INNER JOIN vehicle_model
                     on vehicle_model.id = vehicle.vehicle_model_id
-                inner join customer
-                    on customer.id = vehicle.customer_id;
+                INNER JOIN customer
+                    on customer.id = vehicle.customer_id
+                INNER JOIN vehicle_type
+                    on vehicle_type.id = vehicle.vehicle_type_id
+            ORDER BY vehicle.id DESC;
         ";
 
         $queryRes = $this->db->query($query);
@@ -51,25 +56,30 @@ class VehicleRepository {
     function find($param, $value) {
         
         $query = "
-            select 
+            SELECT 
                 vehicle.id, vehicle.plate, 
-                vehicle.vehicle_colour_id as colour_id, 
-                vehicle_colour.name as colour,
-                vehicle.vehicle_model_id as model_id,
-                vehicle_model.name as model,
+                vehicle.vehicle_colour_id AS colour_id, 
+                vehicle_colour.name AS colour,
+                vehicle.vehicle_model_id AS model_id,
+                vehicle_model.name AS model,
                 vehicle.customer_id,
-                customer.name as customer_name,
-                customer.email as customer_email,
-                customer.cpf as customer_cpf,
-                customer.phone_number as customer_phone_number
-            from vehicle
-                inner join vehicle_colour
+                customer.name AS customer_name,
+                customer.email AS customer_email,
+                customer.cpf AS customer_cpf,
+                customer.phone_number AS customer_phone_number,
+                vehicle.vehicle_type_id,
+                vehicle_type.name AS type
+            FROM vehicle
+                INNER JOIN vehicle_colour
                     on vehicle.vehicle_colour_id = vehicle_colour.id
-                inner join vehicle_model
+                INNER JOIN vehicle_model
                     on vehicle_model.id = vehicle.vehicle_model_id
-                inner join customer
+                INNER JOIN customer
                     on customer.id = vehicle.customer_id
-            where vehicle.$param = $value;
+                INNER JOIN vehicle_type
+                    on vehicle_type.id = vehicle.vehicle_type_id
+            WHERE vehicle.$param = $value 
+            ORDER BY vehicle.id DESC;
         ";
 
         $queryRes = $this->db->query($query);
@@ -114,7 +124,7 @@ class VehicleRepository {
                     vehicle_type_id     = '". $body["vehicle_type_id"] ."',
                     vehicle_model_id    = '". $body["vehicle_model_id"] ."',
                     customer_id         = '". $body["customer_id"] ."'
-                    where id = $id;";
+                    WHERE id = $id;";
 
         $queryRes = $this->db->query($query);
 
@@ -142,6 +152,10 @@ class VehicleRepository {
                 "email" => $record["customer_email"],
                 "cpf" => $record["customer_cpf"],
                 "phone_number" => $record["customer_phone_number"]
+            ),
+            "type" => array(
+                "id" => $record["vehicle_type_id"],
+                "name" => $record["type"]
             )
         );
     }
