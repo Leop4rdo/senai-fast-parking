@@ -53,6 +53,63 @@ INSERT INTO vehicle_model  ( name ) VALUES ("outro"),
 
 
 # VEHICLE -> 
+<<<<<<< HEAD
+INSERT INTO vehicle (
+					 plate,
+                     vehicle_colour_id,
+                     vehicle_type_id,
+                     vehicle_model_id,
+                     customer_id
+                     )
+VALUES				(
+					 'BGSD-123',
+                     1,
+                     2,
+                     6,
+                     1
+                    ),
+                    (
+					 'AAAA-321',
+                     4,
+                     3,
+                     4,
+                     1
+                    ),
+                    (
+					 'BBBB-321',
+                     5,
+                     5,
+                     8,
+                     1
+                    ),
+                    (
+					 'CCCC-321',
+                     7,
+                     1,
+                     3,
+                     1
+                    ),
+                    (
+					 'DDDD-321',
+                     2,
+                     1,
+                     2,
+                     1
+                    ),
+                    (
+					 'EEEE-321',
+                     6,
+                     1,
+                     1,
+                     3
+                    );
+
+show tables;
+
+desc vehicle;
+select * from vehicle;
+                            
+=======
 INSERT INTO vehicle ( plate, vehicle_colour_id, vehicle_type_id, vehicle_model_id, customer_id ) VALUES				
 	( 'BGSD-123', 1, 2, 6, 1 ),
 	( 'AAAA-321', 4, 3, 4, 1 ),
@@ -62,3 +119,4 @@ INSERT INTO vehicle ( plate, vehicle_colour_id, vehicle_type_id, vehicle_model_i
 	( 'EEEE-321', 6, 1, 1, 3 );
                             
 select * from customer;
+>>>>>>> 43515148826524dabe8d924c9f86b65ecc02ffe3

@@ -93,9 +93,10 @@
         app:layout_constraintEnd_toStartOf="@+id/v3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo2" />
+        app:srcCompat="@drawable/fastparking_logo" />
 
     <ImageView
+        android:id="@+id/dashed_line"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:src="@drawable/dashed_line_shape"
@@ -152,10 +153,11 @@
             android:textSize="22sp" />
 
         <TextView
+            android:id="@+id/customerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mr.PoopyButtHole"
-            android:textColor="@color/laranja_claro"
+            android:textColor="@color/primary_yellow"
             android:textSize="22sp" />
 
     </LinearLayout>
@@ -183,9 +185,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sus-6666"
+            android:text=""
             android:textAllCaps="true"
-            android:textColor="@color/laranja_claro"
+            android:textColor="@color/primary_yellow"
             android:textSize="22sp" />
 
     </LinearLayout>
@@ -217,7 +219,7 @@
                 android:layout_height="wrap_content"
                 android:text="Onix-Plus"
                 android:textAllCaps="true"
-                android:textColor="@color/laranja_claro"
+                android:textColor="@color/primary_yellow"
                 android:textSize="22sp" />
 
         </LinearLayout>
@@ -256,7 +258,7 @@
             android:layout_height="wrap_content"
             android:text="a15"
             android:textAllCaps="true"
-            android:textColor="@color/laranja_claro"
+            android:textColor="@color/primary_yellow"
             android:textSize="22sp" />
 
     </LinearLayout>
@@ -284,7 +286,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12:55"
-            android:textColor="@color/laranja_claro"
+            android:textColor="@color/primary_yellow"
             android:textSize="22sp" />
 
     </LinearLayout>
@@ -307,7 +309,7 @@
             android:layout_height="wrap_content"
             android:text="02:30:00"
             android:textAlignment="textStart"
-            android:textColor="@color/laranja_claro"
+            android:textColor="@color/primary_yellow"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -336,7 +338,7 @@
             android:layout_height="wrap_content"
             android:text="R$15,30"
             android:textAlignment="textStart"
-            android:textColor="@color/laranja_claro"
+            android:textColor="@color/primary_yellow"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -364,7 +366,7 @@
             android:id="@+id/previousBtn"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/laranja_claro"
+            android:backgroundTint="@color/primary_yellow"
             android:text="@string/btn_voltar"
             android:textColor="@color/cinza_super_escuro" />
 
