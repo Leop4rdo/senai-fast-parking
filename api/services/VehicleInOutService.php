@@ -62,9 +62,6 @@ class VehicleInOutService {
         try { $this->validateParkingSpot($body["parking_spot_id"]); } 
         catch (Exception $e) { return array("message" => $e->getMessage(), "status" =>400); }
 
-        // setting entrance time:
-        date_default_timezone_set("America/Sao_Paulo");
-        $body["entrance_time"] = date("Y-m-d H:i:s");
         
         // sending data to repository
         $res = $this->repository->create($body);
