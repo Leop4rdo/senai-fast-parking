@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.*
 import com.google.gson.JsonObject
 import com.squareup.picasso.Picasso
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.properties.Delegates
 
 var vehicleId: Int = 1
-var debugging: String = "A"
 
 class DataDisplayActivity : AppCompatActivity() {
 
@@ -22,22 +22,14 @@ class DataDisplayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_display)
 
-//        val intent: Intent = getIntent()
-//        vehicleId = intent.getIntExtra("vehicleId", 1)
+        val intent: Intent = getIntent()
+        vehicleId = intent.getIntExtra("vehicleId", 1)
 
-        val debugBtn = findViewById<Button>(R.id.debugBtn)
 
-//
-//        debugBtn.setOnClickListener {
-//            val dataTextView = findViewById<TextView>(R.id.carPlate)
-//            dataTextView.setText(debugging)
-//        }
-
-//
-        debugBtn.setOnClickListener {
+        val debugging = findViewById<Button>(R.id.debugBtn)
+        debugging.setOnClickListener {
             displayData(vehicleId)
         }
-
 
         val profileBtn = findViewById<ImageButton>(R.id.userProfile)
 
@@ -57,21 +49,19 @@ class DataDisplayActivity : AppCompatActivity() {
 
     private fun displayData(id: Int) {
 
-        val url = "http://localhost/projects/senai-fast-parking/api"
+        val url = "http://localhost/projects/senai-fast-parking/api/"
         val retrofitClient = retrofitInstance(url)
         val endpoint = retrofitClient.create(EndPoint::class.java)
-
-        val dataTextView = findViewById<TextView>(R.id.carPlate)
-        dataTextView.setText(debugging)
 
         endpoint.getData(id).enqueue(object : Callback<JsonObject> {
 
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-                val customerId = response.body()?.get("data")?.asJsonObject
 
-                val dataTextView = findViewById<TextView>(R.id.carPlate)
-                dataTextView.setText(customerId?.asString)
-//                dataTextView.setText(debugging)
+            val customerId = response.body()?.get("data")?.asString
+
+            val dataTextView = findViewById<TextView>(R.id.carPlate)
+            dataTextView.setText(customerId)
+
             }
 
             override fun onFailure(call: Call<JsonObject>, t: Throwable) {

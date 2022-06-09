@@ -85,6 +85,8 @@
         android:orientation="horizontal"
         />
 
+<!--    -->
+
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="400dp"
@@ -133,6 +135,8 @@
         app:layout_constraintBottom_toTopOf="@+id/h"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/v3" />
+
+<!--    -->
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -186,7 +190,7 @@
             android:id="@+id/carPlate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="TEM-PLATE"
             android:textAllCaps="true"
             android:textColor="@color/primary_yellow"
             android:textSize="22sp" />
