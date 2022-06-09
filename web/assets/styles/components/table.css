@@ -3,12 +3,12 @@ table {
 }
 
 tr {
-    background-color: #ECEFF4;
+    background-color: #eceff4;
     line-height: 42px !important;
     width: 100%;
 }
 tr:nth-child(odd) {
-    background-color: #D8DEE9;
+    background-color: #d8dee9;
 }
 
 tr:first-child {
@@ -47,13 +47,13 @@ tr:first-child {
 }
 
 .delete-btn span,
-.edit-btn span{
+.edit-btn span {
     font-size: 1.75rem;
-     color: #4C566A;
+    color: #4c566a;
 
-     cursor: pointer;
+    cursor: pointer;
 
-     transition: color 0.25s ease-out;
+    transition: color 0.25s ease-out;
 }
 
 .delete-btn:hover span {

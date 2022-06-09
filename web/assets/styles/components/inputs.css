@@ -25,7 +25,18 @@
     transition: border 0.25s ease-out;
 }
 
-.input-field > input:focus {
+input.invalid {
+    border-color: var(--red);
+}
+
+input:disabled,
+select:disabled {
+    background-color: var(--dark);
+    border-color: var(--dark);
+}
+
+input:focus,
+select:focus {
     outline: none;
     border-color: var(--primary);
 }

@@ -2,6 +2,7 @@
 
 import { fetchData } from "../services/fetch_data.js";
 import { createCustomer, updateCustomer } from "../services/customer_service.js";
+import { maskCPF } from "../utils/masks.js";
 
 const container = document.getElementById("data-view-table");
 
@@ -116,6 +117,8 @@ const setEditing = (isEditing) => {
     const confirmBtn = document.getElementById("submit-btn");
     const cancelBtn = document.getElementById("cancel-btn");
 
+    document.getElementById("cpf").disabled = isEditing;
+
     if (isEditing) {
         cancelBtn.disabled = false;
         confirmBtn.innerText = "editar";
@@ -127,6 +130,8 @@ const setEditing = (isEditing) => {
 };
 
 // events
+document.getElementById("cpf").addEventListener("keypress", (e) => (e.target.value = maskCPF(e.target.value)));
+
 renderUsers();
 
 document.getElementById("user-form").addEventListener("submit", onFormSubmit);
