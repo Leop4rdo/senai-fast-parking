@@ -1,7 +1,6 @@
 "use strict";
 
 export const maskCPF = (cpf) => {
-    console.log("cu");
     let maskedCpf = cpf.replace(/\D/g, "");
 
     maskedCpf = maskedCpf.replace(/(\d{3})(\d)/, "$1.$2");

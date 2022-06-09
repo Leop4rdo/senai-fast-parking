@@ -54,7 +54,7 @@ const onFormSubmit = async (e) => {
 
     const btnDataset = document.getElementById("submit-btn").dataset;
 
-    const _id = btnDataset.id || null;
+    const _id = btnDataset.id || "";
 
     const cpf = document.getElementById("cpf").value;
     const isCpfValid = await isCustomerCpfValid(cpf);
@@ -72,7 +72,7 @@ const onFormSubmit = async (e) => {
 
     try {
         let res;
-        if (!_id) {
+        if (_id === "") {
             res = await createVehicle(vehicle);
         } else {
             res = await updateVehicle(vehicle, _id);
@@ -85,7 +85,7 @@ const onFormSubmit = async (e) => {
     }
 
     clearForm();
-    updateTable;
+    updateTable();
 };
 
 /** handle click on edit buttons */
@@ -116,7 +116,7 @@ const fillForm = (vehicle) => {
 const clearForm = () => {
     document.getElementById("license-plate").value = "";
     document.getElementById("type").value = 1;
-    document.getElementById("coluor").value = 1;
+    document.getElementById("colour").value = 1;
     document.getElementById("model").value = 1;
     document.getElementById("cpf").value = "";
 };
@@ -140,6 +140,7 @@ const setEditing = (isEditing) => {
     } else {
         cancelBtn.disabled = true;
         confirmBtn.innerText = "cadastrar";
+        confirmBtn.removeAttribute("data-id");
         clearForm();
     }
 };
@@ -150,7 +151,7 @@ fillSelect("type");
 fillSelect("colour");
 fillSelect("model");
 
-document.getElementById("license-plate").addEventListener("keypress", (e) => {
+document.getElementById("license-plate").addEventListener("keyup", (e) => {
     e.target.value = e.target.value.toUpperCase();
 });
 

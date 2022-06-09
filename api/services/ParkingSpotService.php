@@ -36,7 +36,7 @@ class ParkingSpotService {
         // validating id
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
         
-        $res = $this->repository->find("id", $id);
+        $res = $this->repository->find("parking_spot.id", $id);
 
         // if no data is found
         if (count($res) === 0) return array("message" => "data not found!", "status" => 404);

@@ -125,6 +125,8 @@ const setEditing = (isEditing) => {
     } else {
         cancelBtn.disabled = true;
         confirmBtn.innerText = "cadastrar";
+        confirmBtn.removeAttribute("data-id");
+
         clearForm();
     }
 };

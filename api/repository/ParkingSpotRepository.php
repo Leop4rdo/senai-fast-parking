@@ -71,7 +71,7 @@ class ParkingSpotRepository {
     }
 
     function delete($id) {
-        $query = "DELETE FROM parking_spot WHERE id = $id";
+        $query = "DELETE FROM parking_spot WHERE parking_spot.id = $id";
         $queryRes =$this->db->query($query);
 
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);
