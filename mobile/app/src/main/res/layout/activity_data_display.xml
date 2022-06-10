@@ -138,6 +138,30 @@
 
 <!--    -->
 
+<!--  Debugging  -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/h3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dashed_line">
+
+        <TextView
+            android:id="@+id/thrownMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAllCaps="true"
+            android:textColor="@color/primary_yellow"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+<!--    -->
+
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
@@ -150,6 +174,7 @@
         app:layout_constraintTop_toTopOf="@+id/h">
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome do Cliente:"
@@ -178,6 +203,7 @@
         app:layout_constraintTop_toTopOf="@+id/h1">
 
         <TextView
+            android:id="@+id/plate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Placa:"
@@ -212,6 +238,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Modelo:"
@@ -220,6 +247,7 @@
                 android:textSize="22sp" />
 
             <TextView
+                android:id="@+id/carModel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Onix-Plus"
@@ -251,6 +279,7 @@
         app:layout_constraintTop_toTopOf="@+id/h4">
 
         <TextView
+            android:id="@+id/parkingSpot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vaga estacionada:"
@@ -259,6 +288,7 @@
             android:textSize="22sp" />
 
         <TextView
+            android:id="@+id/currentParkingSpot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="a15"
@@ -280,6 +310,7 @@
         app:layout_constraintTop_toTopOf="@+id/h4">
 
         <TextView
+            android:id="@+id/entrance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Horário entrada:"
@@ -288,6 +319,7 @@
             android:textSize="22sp" />
 
         <TextView
+            android:id="@+id/timeEntrance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12:55"
