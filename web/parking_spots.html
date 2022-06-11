@@ -22,36 +22,37 @@
         <script src="./src/components/sidebar.js" defer></script>
 
         <!-- Loading JS -->
-        <script src="./src/pages/users.js" defer type="module"></script>
+        <script src="./src/pages/parking_spots.js" defer type="module"></script>
     </head>
     <body>
         <sidebar-component data-active-index="2"></sidebar-component>
         <main>
             <header>
-                <h1>Cadastro de usuários</h1>
+                <h1>Adm. de vagas</h1>
                 <img src="assets/logo.png" alt="" />
             </header>
 
             <div class="row-container">
                 <div class="form-container">
-                    <form autocomplete="off" id="user-form">
+                    <form autocomplete="off" id="form">
                         <div class="input-field">
-                            <label for="parkingSpace">Nome da vaga</label>
-                            <input type="text" id="parkingSpace" required />
+                            <label for="name">Nome da vaga</label>
+                            <input type="text" id="name" required />
                         </div>
                         <div class="input-field">
                             <label for="type">Tipo</label>
-                            <input type="text" id="type" required />
+                            <select id="type" data-type="vehicle-types"></select>
                         </div>
                         <button class="primary-btn" id="submit-btn">cadastrar</button>
+                        <button class="negative-btn" id="cancel-btn" disabled>cancelar</button>
                     </form>
                 </div>
                 <div class="data-view">
                     <table id="data-view-table">
                         <tr>
+                            <th class="table-header">Nome</th>
+                            <th class="table-header">Tipo da vaga</th>
                             <th class="table-header">Opções</th>
-                            <th class="table-header">Tipo</th>
-                            <th class="table-header">Vaga</th>
                         </tr>
                     </table>
                 </div>

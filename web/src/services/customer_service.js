@@ -1,6 +1,6 @@
 "use strict";
 
-const baseURL = "http://localhost/projects/senai-fast-parking/api/v1";
+import { baseURL, fetchData } from "../services/fetch_data.js";
 
 export const createCustomer = async (user) => {
     const config = {
@@ -36,4 +36,11 @@ export const updateCustomer = async (customer, id) => {
 
     const res = await fetch(`${baseURL}/customers/${id}`, config);
     return await res.json();
+};
+
+export const isCustomerCpfValid = async () => {
+    const cpf = document.getElementById("cpf").value;
+
+    const res = await fetchData(`customers?cpf=${cpf}`);
+    return res.status == 200;
 };
