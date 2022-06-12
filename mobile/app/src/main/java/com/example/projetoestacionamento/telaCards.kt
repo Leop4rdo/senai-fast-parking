@@ -3,6 +3,7 @@ package com.example.projetoestacionamento
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 
 class telaCards : AppCompatActivity() {
@@ -22,6 +23,11 @@ class telaCards : AppCompatActivity() {
         userProfile.setOnClickListener{
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
+        }
+
+        val exitBtn = findViewById<Button>(R.id.exitBtn)
+        exitBtn.setOnClickListener{
+            finishAffinity()
         }
 
     }
