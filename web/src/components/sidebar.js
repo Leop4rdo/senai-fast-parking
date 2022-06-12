@@ -97,7 +97,7 @@ class Sidebar extends HTMLElement {
                     </a>
                 </div>
                 <div class="nav-item ${this.activeIndex == "2" ? "active" : ""}">
-                    <a href="parking.html">
+                    <a href="parking_spots.html">
                         <img src="assets/icons/parking-${this.activeIndex == 2 ? "yellow" : "white"}.png" alt="vagas" />
                     </a>
                 </div>

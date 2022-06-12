@@ -19,12 +19,14 @@
 
         <!-- Loading custom components -->
         <script src="./src/components/sidebar.js" defer></script>
+
+        <script src=""></script>
     </head>
     <body>
         <sidebar-component data-active-index="3"></sidebar-component>
         <main>
             <header>
-                <h1>Cadastro de usuários</h1>
+                <h1>Cadastro de entrada</h1>
                 <img src="assets/logo.png" alt="" />
             </header>
 
@@ -32,11 +34,7 @@
                 <div class="form-container">
                     <form autocomplete="off" id="user-form">
                         <div class="input-field">
-                            <label for="cpf">CPF do cliente</label>
-                            <input type="text" id="cpf" required />
-                        </div>
-                        <div class="input-field">
-                            <label for="vehicle">Placa do veiculo</label>
+                            <label for="license-plate">Placa do veiculo</label>
                             <select id="vehicle" required></select>
                         </div>
                         <div class="input-field">

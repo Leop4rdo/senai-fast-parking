@@ -20,7 +20,7 @@ class ParkingSpotRepository {
             FROM parking_spot
                 INNER JOIN vehicle_type
                     ON vehicle_type.id = parking_spot.vehicle_type_id
-            ORDER BY parking_spot.name DESC;
+            ORDER BY parking_spot.id DESC;
         ";
 
         $queryRes = $this->db->query($query);
@@ -60,7 +60,7 @@ class ParkingSpotRepository {
     }
 
     function create( array $body ) {
-        $query = "INSERT INTO parking_spot (name, vehicle_type_id) values (
+        $query = "INSERT INTO parking_spot (parking_spot.name, parking_spot.vehicle_type_id) values (
             '". $body["name"]."', ". $body["vehicle_type_id"] .");";
 
         $this->db->query($query);
@@ -71,7 +71,7 @@ class ParkingSpotRepository {
     }
 
     function delete($id) {
-        $query = "DELETE FROM parking_spot WHERE id = $id";
+        $query = "DELETE FROM parking_spot WHERE parking_spot.id = $id";
         $queryRes =$this->db->query($query);
 
         if ($this->db->errno) return array("message" => "error: " . $this->db->error, "status" => 400);

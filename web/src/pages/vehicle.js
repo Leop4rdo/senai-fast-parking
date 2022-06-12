@@ -1,10 +1,14 @@
 "use strict";
 
+import { isCustomerCpfValid } from "../services/customer_service.js";
 import { fetchData } from "../services/fetch_data.js";
-import { createCustomer, updateCustomer } from "../services/customer_service.js";
+import { createVehicle, updateVehicle } from "../services/vehicle_service.js";
+import { maskCPF } from "../utils/masks.js";
+import { fillSelect } from "../utils/utils.js";
 
 const container = document.getElementById("data-view-table");
 
+/** updates table content */
 const updateTable = async () => {
     const vehicles = await fetchData("vehicles");
 
@@ -30,6 +34,7 @@ const updateTable = async () => {
     container.replaceChildren(...rows);
 };
 
+/** render the table header */
 const getTableHeader = () => {
     const header = document.createElement("tr");
     header.innerHTML = `
@@ -42,68 +47,78 @@ const getTableHeader = () => {
     return header;
 };
 
+/** this function is responsible for creating or editing a record in the api */
 const onFormSubmit = async (e) => {
     e.preventDefault();
-    document.getElementById("user-form").reportValidity();
+    document.getElementById("vehicle-form").reportValidity();
 
     const btnDataset = document.getElementById("submit-btn").dataset;
 
     const _id = btnDataset.id || "";
 
-    const customer = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        phone_number: document.getElementById("phone").value,
-        cpf: document.getElementById("cpf").value,
-        password: document.getElementById("password").value,
+    const cpf = document.getElementById("cpf").value;
+    const isCpfValid = await isCustomerCpfValid(cpf);
+    if (!isCpfValid) return alert("Cpf do cliente não encontrado");
+
+    const customer = await fetchData(`customers?cpf=${cpf}`);
+
+    const vehicle = {
+        plate: document.getElementById("license-plate").value,
+        vehicle_colour_id: document.getElementById("colour").value,
+        vehicle_type_id: document.getElementById("type").value,
+        vehicle_model_id: document.getElementById("model").value,
+        customer_id: customer.data.id,
     };
 
     try {
+        let res;
         if (_id === "") {
-            await createCustomer(customer);
+            res = await createVehicle(vehicle);
         } else {
-            await updateCustomer(customer, _id);
-
+            res = await updateVehicle(vehicle, _id);
             setEditing(false);
         }
+
+        alert(res.message);
     } catch (err) {
-        alert(err.message);
+        console.log(err.message);
     }
 
     clearForm();
     updateTable();
 };
 
+/** handle click on edit buttons */
 const handleClick = async (e) => {
     const { target } = e;
 
     const [action, id] = target.id.split("-");
 
     if (action == "edit") {
-        const res = await fetchData(`customers/${id}`);
-        const customer = res.data;
+        const res = await fetchData(`vehicles/${id}`);
+        const vehicle = res.data[0];
 
-        fillForm(customer);
+        fillForm(vehicle);
         document.getElementById("submit-btn").dataset.id = id;
     }
 };
 
-const fillForm = (customer) => {
-    document.getElementById("name").value = customer.name;
-    document.getElementById("email").value = customer.email;
-    document.getElementById("phone").value = customer.phone_number;
-    document.getElementById("cpf").value = customer.cpf;
-    document.getElementById("password").value = customer.password;
+const fillForm = (vehicle) => {
+    document.getElementById("license-plate").value = vehicle.plate;
+    document.getElementById("type").value = vehicle.type.id;
+    document.getElementById("colour").value = vehicle.colour.id;
+    document.getElementById("model").value = vehicle.model.id;
+    document.getElementById("cpf").value = vehicle.customer.cpf;
 
     setEditing(true);
 };
 
 const clearForm = () => {
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("phone").value = "";
+    document.getElementById("license-plate").value = "";
+    document.getElementById("type").value = 1;
+    document.getElementById("colour").value = 1;
+    document.getElementById("model").value = 1;
     document.getElementById("cpf").value = "";
-    document.getElementById("password").value = "";
 };
 
 const onCancel = (e) => {
@@ -116,18 +131,39 @@ const setEditing = (isEditing) => {
     const confirmBtn = document.getElementById("submit-btn");
     const cancelBtn = document.getElementById("cancel-btn");
 
+    document.getElementById("model").disabled = isEditing;
+    document.getElementById("type").disabled = isEditing;
+
     if (isEditing) {
         cancelBtn.disabled = false;
         confirmBtn.innerText = "editar";
     } else {
         cancelBtn.disabled = true;
         confirmBtn.innerText = "cadastrar";
+        confirmBtn.removeAttribute("data-id");
         clearForm();
     }
 };
 
 // events
 updateTable();
+fillSelect("type");
+fillSelect("colour");
+fillSelect("model");
+
+document.getElementById("license-plate").addEventListener("keyup", (e) => {
+    e.target.value = e.target.value.toUpperCase();
+});
+
+document.getElementById("cpf").addEventListener("keypress", (e) => (e.target.value = maskCPF(e.target.value)));
+
+document.getElementById("cpf").addEventListener("focusout", async (e) => {
+    const { target } = e;
+
+    const isValid = await isCustomerCpfValid();
+
+    target.className = !isValid ? "invalid" : "";
+});
 
 document.getElementById("vehicle-form").addEventListener("submit", onFormSubmit);
 document.getElementById("cancel-btn").addEventListener("click", onCancel);
