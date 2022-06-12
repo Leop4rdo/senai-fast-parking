@@ -56,7 +56,7 @@ class ParkingSpotService {
         if (!is_numeric($body["vehicle_type_id"]) || $body["vehicle_type_id"] < 0) return array("message" => "Invalid vehicle type!", "status" => 400);
 
         // if parking spot already exists, return an error message
-        $parkingSpot = $this->repository->find("name", $body["name"]);
+        $parkingSpot = $this->repository->find("parking_spot.name", $body["name"]);
 
         if ( count($parkingSpot) != 0 ) return array("message" => "parking spot already exists in database!", "status" => 400);
 
@@ -86,7 +86,7 @@ class ParkingSpotService {
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
 
         // if parking spot does not exists
-        $parkingSpot = $this->repository->find("id", $id);
+        $parkingSpot = $this->repository->find("parking_spot.id", $id);
         if ( count($parkingSpot) === 0 ) return array("message" => "parking spot does not exists in database!", "status" => 400);
 
         // validating body
