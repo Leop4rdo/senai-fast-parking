@@ -15,6 +15,10 @@ tr:first-child {
     background-color: var(--dark-variant);
 }
 
+tr.selected {
+    background-color: var(--primary);
+}
+
 .table-header {
     background-color: var(--primary);
     height: 42px !important;

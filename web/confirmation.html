@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="./assets/styles/header.css" />
         <link rel="stylesheet" href="./assets/styles/components/inputs.css" />
         <link rel="stylesheet" href="./assets/styles/components/table.css" />
+        <link rel="stylesheet" href="./assets/styles/pages/confirmation.css" />
 
         <!-- Google Material Icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -22,7 +23,7 @@
         <script src="./src/components/sidebar.js" defer></script>
 
         <!-- Loading JS -->
-        <script src="./src/pages/users.js" defer type="module"></script>
+        <script src="./src/pages/confirmation.js" defer type="module"></script>
     </head>
     <body>
         <sidebar-component data-active-index="3"></sidebar-component>
@@ -32,10 +33,66 @@
                 <img src="assets/logo.png" alt="" />
             </header>
 
-            <div class="row-container">
-                <div class="data-view">
-                    <h3>Confirme</h3>
+            <div class="content">
+                <div class="data-container">
+                    <div class="timestamp">
+                        <label>Tempo de Estadia</label>
+                        <span class="data-value" id="delta-time">00:00:00</span>
+                    </div>
+
+                    <div class="total-price">
+                        <label>Valor Total</label>
+                        <span class="data-value" id="total-price">R$ 0.000,00</span>
+                    </div>
                 </div>
+
+                <div class="card-container">
+                    <div class="card">
+                        <span class="card-name">Veículo</span>
+
+                        <div class="value-container">
+                            <span>Placa:</span> <span class="card-value" id="vehicle-license-plate"></span>
+                        </div>
+
+                        <div class="value-container">
+                            <span>Modelo:</span> <span class="card-value" id="vehicle-model"></span>
+                        </div>
+
+                        <div class="value-container">
+                            <span>Cor:</span> <span class="card-value" id="vehicle-colour"></span>
+                        </div>
+
+                        <div class="value-container">
+                            <span>Tipo de veículo:</span> <span class="card-value" id="vehicle-type"></span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-name">Vaga</span>
+
+                        <div class="value-container">
+                            <span>Nome:</span> <span class="card-value" id="parking-spot"></span>
+                        </div>
+
+                        <div class="value-container">
+                            <span>Valor/Hora:</span> <span class="card-value" id="hour-price"></span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-name">Cliente</span>
+
+                        <div class="value-container"><span>Nome:</span> <span class="card-value" id="customer"></span></div>
+
+                        <div class="value-container"><span>Email:</span> <span class="card-value" id="email"></span></div>
+
+                        <div class="value-container"><span>Telefone:</span> <span class="card-value" id="phone"></span></div>
+
+                        <div class="value-container"><span>CPF:</span> <span class="card-value" id="cpf"></span></div>
+                    </div>
+                </div>
+
+                <button class="primary-btn" id="confirm">Confirmar</button>
             </div>
         </main>
     </body>

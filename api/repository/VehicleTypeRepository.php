@@ -26,7 +26,7 @@ class VehicleTypeRepository {
     }
 
     function find($param, $value) {
-        $query = "SELECT * FROM vehicle_type WHERE $param = $value";
+        $query = "SELECT * FROM vehicle_type WHERE $param = '$value'";
 
         $queryRes = $this->db->query($query);
 

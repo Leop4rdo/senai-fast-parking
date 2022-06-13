@@ -8,9 +8,9 @@ export const createParkingSpot = async (parkingSpot) => {
         body: JSON.stringify(parkingSpot),
         headers: {
             "content-type": "application/json",
-        }
+        },
     };
-    
+
     const res = await fetch(`${baseURL}/parking-spots`, config);
     return await res.json();
 };
@@ -21,9 +21,8 @@ export const updateParkingSpot = async (parkingSpot, id) => {
         body: JSON.stringify(parkingSpot),
         headers: {
             "content-type": "application/json",
-        }
+        },
     };
-    console.log(config);
 
     const res = await fetch(`${baseURL}/parking-spots/${id}`, config);
     return await res.json();

@@ -11,7 +11,9 @@ $app->get('/v1/vehicles',  function (Request $request, Response $response, array
 
     if( $request->getQueryParam("customer") > 0 )
         return $controller->getByCustomerId($request, $response, $args);
-    else 
+    elseif ($request->getQueryParam("plate")) {
+        return $controller->getByLicensePlate($request, $response, $args);
+    } else 
         return $controller->getAll($request, $response, $args);
 
 });

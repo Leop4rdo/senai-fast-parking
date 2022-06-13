@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>administração - Fast Parking</title>
+
+        <!-- Loading CSS -->
+        <link rel="stylesheet" href="./assets/styles/reset.css" />
+        <link rel="stylesheet" href="./assets/styles/header.css" />
+        <link rel="stylesheet" href="./assets/styles/utils/animations.css" />
+        <link rel="stylesheet" href="./assets/styles/components/inputs.css" />
+        <link rel="stylesheet" href="./assets/styles/pages/dashboard.css" />
+
+        <!-- Google Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+        <!-- Loading custom components -->
+        <script src="./src/components/sidebar.js" defer></script>
+    </head>
+    <body>
+        <sidebar-component data-active-index="4"></sidebar-component>
+        <main>
+            <header>
+                <h1>Dashboard</h1>
+                <img src="assets/logo.png" alt="" />
+            </header>
+
+            <div class="content">
+
+                <div class="input-field">
+                    <label>Período de tempo:</label>
+
+                    <select id="period">
+                        <option value="0">Último dia</option>
+                        <option value="1">Último mês</option>
+                        <option value="2">Último ano</option>
+                    </select>
+                </div>
+
+                <div class="card-container">
+                    <div class="card">
+                        <span class="card-name">Rendimentos</span>
+                        <span class="card-value">R$ 00.000,00</span>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-name">Veículos Estacionados</span>
+                        <span class="card-value">111.111.111</span>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-name">Novos Clientes</span>
+                        <span class="card-value">111.111.111</span>
+                    </div>
+
+                </div>
+
+                <button class="primary-btn" >Atualizar preços</button>
+
+            </div>
+        </main>
+    </body>
+</html>
