@@ -13,10 +13,13 @@ use Slim\Http\Response;
 
 require_once "controller/CustomerController.php";
 
-$app->get('/v1/customers/',  function (Request $request, Response $response, array $args) {
+$app->get('/v1/customers',  function (Request $request, Response $response, array $args) {
     $controller = new CustomerController();
 
-    return $controller->getAll($request, $response, $args);
+    if( $request->getQueryParam("cpf") > 0 )
+        return $controller->getByCpf($request, $response, $args);
+    else 
+        return $controller->getAll($request, $response, $args);
 });
 
 $app->get("/v1/customers/{id}",  function (Request $request, Response $response, array $args) {
@@ -31,7 +34,7 @@ $app->put("/v1/customers/{id}",  function (Request $request, Response $response,
     return $controller->update($request, $response, $args);
 });
 
-$app->post('/v1/customers/',  function (Request $request, Response $response, array $args) {
+$app->post('/v1/customers',  function (Request $request, Response $response, array $args) {
     $controller = new CustomerController();
 
     return $controller->create($request, $response, $args);

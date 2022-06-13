@@ -37,6 +37,16 @@ class CustomerController {
                 ->write(json_encode($resData));
     }
 
+    function getByCpf(Request $request, Response $response, array $args) {
+        $cpf = $request->getQueryParam("cpf");
+
+        $resData = (array) $this->service->findByCpf($cpf);
+
+        return $response->withStatus($resData['status'])
+                ->withHeader("Content-Type", "application/json")
+                ->write(json_encode($resData));
+    }
+
     function create(Request $request, Response $response, array $args) {
         $body = $request->getParsedBody();
 

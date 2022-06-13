@@ -9,6 +9,7 @@
         <!-- Loading CSS -->
         <link rel="stylesheet" href="./assets/styles/reset.css" />
         <link rel="stylesheet" href="./assets/styles/utils/animations.css" />
+
         <link rel="stylesheet" href="./assets/styles/pages/base_page.css" />
         <link rel="stylesheet" href="./assets/styles/header.css" />
         <link rel="stylesheet" href="./assets/styles/components/inputs.css" />
@@ -21,40 +22,27 @@
         <script src="./src/components/sidebar.js" defer></script>
 
         <!-- Loading JS -->
-        <script src="./src/pages/users.js" defer type="module"></script>
+        <script src="./src/pages/parking_spots.js" defer type="module"></script>
     </head>
     <body>
-        <sidebar-component data-active-index="0"></sidebar-component>
+        <sidebar-component data-active-index="2"></sidebar-component>
         <main>
             <header>
-                <h1>Cadastro de usuários</h1>
+                <h1>Adm. de vagas</h1>
                 <img src="assets/logo.png" alt="" />
             </header>
 
             <div class="row-container">
                 <div class="form-container">
-                    <form autocomplete="off" id="user-form">
+                    <form autocomplete="off" id="form">
                         <div class="input-field">
-                            <label for="name">Usuário</label>
+                            <label for="name">Nome da vaga</label>
                             <input type="text" id="name" required />
                         </div>
                         <div class="input-field">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required />
+                            <label for="type">Tipo</label>
+                            <select id="type" data-type="vehicle-types"></select>
                         </div>
-                        <div class="input-field">
-                            <label for="phone">Telefone</label>
-                            <input type="text" id="phone" required />
-                        </div>
-                        <div class="input-field">
-                            <label for="cpf">CPF</label>
-                            <input type="text" max-length="14" id="cpf" required />
-                        </div>
-                        <div class="input-field">
-                            <label for="password">Senha</label>
-                            <input type="password" id="password" required />
-                        </div>
-
                         <button class="primary-btn" id="submit-btn">cadastrar</button>
                         <button class="negative-btn" id="cancel-btn" disabled>cancelar</button>
                     </form>
@@ -63,8 +51,7 @@
                     <table id="data-view-table">
                         <tr>
                             <th class="table-header">Nome</th>
-                            <th class="table-header">Email</th>
-                            <th class="table-header">cpf</th>
+                            <th class="table-header">Tipo da vaga</th>
                             <th class="table-header">Opções</th>
                         </tr>
                     </table>

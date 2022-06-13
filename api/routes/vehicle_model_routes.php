@@ -5,7 +5,7 @@ use Slim\Http\Response;
 
 require_once "controller/VehicleModelController.php";
 
-$app->get('/v1/vehicle-models/',  function (Request $request, Response $response, array $args) {
+$app->get('/v1/vehicle-models',  function (Request $request, Response $response, array $args) {
     $controller = new VehicleModelController();
 
     return $controller->getAll($request, $response, $args);
@@ -19,7 +19,7 @@ $app->get("/v1/vehicle-models/{id}",  function (Request $request, Response $resp
 
 });
 
-$app->post("/v1/vehicle-models/",  function (Request $request, Response $response, array $args) {
+$app->post("/v1/vehicle-models",  function (Request $request, Response $response, array $args) {
     $controller = new VehicleModelController();
 
     return $controller->create($request, $response, $args);

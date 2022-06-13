@@ -93,22 +93,26 @@ class Sidebar extends HTMLElement {
                 </div>
                 <div class="nav-item ${this.activeIndex == "1" ? "active" : ""}">
                     <a href="vehicles.html">
-                        <img src="assets/icons/vehicle-${this.activeIndex == 1 ? "yellow" : "white"}.png" alt="usuarios" />
+                        <img src="assets/icons/vehicle-${this.activeIndex == 1 ? "yellow" : "white"}.png" alt="veiculos" />
                     </a>
                 </div>
                 <div class="nav-item ${this.activeIndex == "2" ? "active" : ""}">
-                    <a href="parking.html">
-                        <img src="assets/icons/parking-${this.activeIndex == 2 ? "yellow" : "white"}.png" alt="usuarios" />
+                    <a href="parking_spots.html">
+                        <img src="assets/icons/parking-${this.activeIndex == 2 ? "yellow" : "white"}.png" alt="vagas" />
                     </a>
                 </div>
                 <div class="nav-item ${this.activeIndex == "3" ? "active" : ""}">
-                    <a href="in-out.html">
-                        <img src="assets/icons/in-out-${this.activeIndex == 3 ? "yellow" : "white"}.png" alt="usuarios" />
+                    <a href="in_out.html">
+                        <img src="assets/icons/in-out-${
+                            this.activeIndex == 3 ? "yellow" : "white"
+                        }.png" alt="entrada e saida" />
                     </a>
                 </div>
                 <div class="nav-item ${this.activeIndex == "4" ? "active" : ""}">
                     <a href="dashboard.html">
-                        <img src="assets/icons/dashboard-${this.activeIndex == 4 ? "yellow" : "white"}.png" alt="usuarios" />
+                        <img src="assets/icons/dashboard-${
+                            this.activeIndex == 4 ? "yellow" : "white"
+                        }.png" alt="dashboard" />
                     </a>
                 </div>
             </nav>
