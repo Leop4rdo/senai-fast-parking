@@ -78,7 +78,7 @@ class VehicleRepository {
                     on customer.id = vehicle.customer_id
                 INNER JOIN vehicle_type
                     on vehicle_type.id = vehicle.vehicle_type_id
-            WHERE vehicle.$param = $value 
+            WHERE $param = '$value' 
             ORDER BY vehicle.id DESC;
         ";
 

@@ -73,20 +73,20 @@ class VehicleInOutService {
         // validating id
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
 
-        $inOut = $this->repository->find("id", $id);
+        $inOut = $this->repository->find("id", $id)[0];
         if ( count($inOut) === 0 ) return array("message" => "Vehicle in out does not exists!", "status" => 400);
-        if ( $inOut["exit_time"] != null ) return array("message" => "vehicle in out has already been terminated!", "status" => 400);
+        if ( @$inOut["exit_time"] != null ) return array("message" => "vehicle in out has already been terminated!", "status" => 400);
         
         // setting exit time
         date_default_timezone_set("America/Sao_Paulo");
         $inOut["exit_time"] = date("Y-m-d H:i:s");
 
         // getting hour price
-        $parkingSpot = $this->parkingSpotRepository->find("id", $inOut["parking_spot_id"]);
+        $parkingSpot = $this->parkingSpotRepository->find("id", $inOut["parking_spot"]["id"]);
         $typeRepository = new VehicleTypeRepository();
         
         // setting total price
-        $hourPrice = $this->getHourPrice($inOut["parking_spot_id"]);
+        $hourPrice = $this->getHourPrice($inOut["parking_spot"]["id"]);
         $inOut["total_price"] = $this->getTotalPrice($hourPrice, $inOut["entrance_time"], $inOut["exit_time"]);
 
         // updating database
@@ -106,7 +106,7 @@ class VehicleInOutService {
         // validating if vehicle is already parked
         $isVehicleParked = $this->repository->find("vehicle_id", $id);
 
-        if ( count($isVehicleParked) > 0 && $isVehicleParked["exit_time"] == null ) throw new Exception("Vehicle is already parked!");
+        if ( count($isVehicleParked) > 0 && $isVehicleParked["exit_time"] ) throw new Exception("Vehicle is already parked!");
     }
 
     private function validateParkingSpot($id) {
@@ -125,7 +125,7 @@ class VehicleInOutService {
     private function getHourPrice($parkingSpotId) {
         $parkingSpot = $this->parkingSpotRepository->find("id", $parkingSpotId);
         $typeRepository = new VehicleTypeRepository();
-        return $typeRepository->find("id", $parkingSpot["vehicle_type_id"])["price"];
+        return $typeRepository->find("id", $parkingSpot["vehicle"])["type"];
     }
 
     private function dateIntervalToHours($interval) {

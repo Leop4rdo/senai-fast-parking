@@ -32,7 +32,7 @@
             
             $customerId = $request->getQueryParam("customer");
 
-            $resData = (array) $this->service->findByCustomerId($customerId);
+            $resData = (array) $this->service->findBy("customer.id", $customerId);
 
             return $response->withStatus($resData['status'])
                             ->withHeader("Content-Type", "application/json")
@@ -44,6 +44,16 @@
     
             $resData = (array) $this->service->create($body);
     
+            return $response->withStatus($resData['status'])
+                            ->withHeader("Content-Type", "application/json")
+                            ->write(json_encode($resData));
+        }
+
+        function getByLicensePlate(Request $request, Response $response, array $args) {
+            $plate = $request->getQueryParam("plate");
+
+            $resData = (array) $this->service->findBy("vehicle.plate", $plate);
+
             return $response->withStatus($resData['status'])
                             ->withHeader("Content-Type", "application/json")
                             ->write(json_encode($resData));

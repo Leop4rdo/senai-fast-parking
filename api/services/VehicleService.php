@@ -36,7 +36,7 @@ class VehicleService {
 
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
 
-        $res = $this->repository->find("id", $id);
+        $res = $this->repository->find("vehicle.id", $id);
 
         // if no data is returned
         if (count($res) === 0) return array("message" => "data not found!", "status" => 404);
@@ -47,13 +47,8 @@ class VehicleService {
         return array("data" => $res, "status" => 200);  
     }
 
-    function findByCustomerId($id) {
-
-        if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
-
-        // if (empty($params) || empty($params['customer'])  );
-
-        $res = $this->repository->find("customer_id", $id);
+    function findBy($param, $value) {
+        $res = $this->repository->find($param, $value);
 
         // if no data is returned
         if (count($res) === 0) return array("message" => "data not found!", "status" => 404);
@@ -61,8 +56,9 @@ class VehicleService {
         // catch errors in repository
         if (!empty($res["status"])) return array("message" => $res["message"], "status" => $res["status"]);
 
-        return array("data" => $res, "status" => 200);  
+        return array("data" => $res, "status" => 200);
     }
+
 
     function create($body) {
         // validating body

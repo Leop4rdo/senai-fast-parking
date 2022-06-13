@@ -16,3 +16,8 @@ export const fillSelect = async (selectId) => {
 
     select.innerHTML = options.join();
 };
+
+export const getURLParam = (param) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+};
