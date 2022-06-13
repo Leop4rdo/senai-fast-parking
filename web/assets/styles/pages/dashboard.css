@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: clamp(50px, 4vw, 150px);
+    flex-wrap: wrap;
+}
+
+.input-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    font-size: 1.5rem;
+}
+
+select {
+    color: var(--primary);
+    background-color: var(--dark)!important;
+}
+
+option {
+    text-align: center;
+}
+
+.card-container{
+    display: flex;
+    gap: clamp(25px, 2vw, 50px);
+}
+
+.card {
+    opacity: 0;
+    animation: fade-up 0.5s ease-out 0.25s forwards;
+
+    width: clamp(300px, 20vw, 300px);
+    aspect-ratio: 2/1;
+    padding: 24px;
+
+    background-color: var(--dark);
+
+    border-width: 2px;
+    border-style: dashed;
+    border-color: var(--primary);
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    transition: scale 0.25s ease-out;
+}
+
+.card .material-icons {
+    font-size: clamp(3rem, 5vw, 5rem);
+}
+
+.card .card-name {
+    font-size: clamp(1rem, 1.1vw, 1.1rem);
+    text-align: center;
+    width: 80%;
+}
+
+.card:hover {
+    scale: 1.1;
+}
+
+.primary-btn{
+    font-weight: bolder;
+}
+
+h6{
+    color: var(--primary);
+    font-size: clamp(20px, 3vw, 32px);
+    position: relative;
+}
+
+button {
+    max-width: 300px;
+}
