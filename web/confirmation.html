@@ -37,12 +37,12 @@
                 <div class="data-container">
                     <div class="timestamp">
                         <label>Tempo de Estadia</label>
-                        <span class="data-value">00:00:00</span>
+                        <span class="data-value" id="delta-time">00:00:00</span>
                     </div>
 
                     <div class="total-price">
                         <label>Valor Total</label>
-                        <span class="data-value">R$ 0.000,00</span>
+                        <span class="data-value" id="total-price">R$ 0.000,00</span>
                     </div>
                 </div>
 
@@ -50,43 +50,49 @@
                     <div class="card">
                         <span class="card-name">Veículo</span>
 
-                        <div class="value-container"><span>Placa:</span> <span class="card-value">CKP-1021</span></div>
-
-                        <div class="value-container"><span>Modelo:</span> <span class="card-value">Onix</span></div>
-
-                        <div class="value-container"><span>Cor:</span> <span class="card-value">Vermelho</span></div>
+                        <div class="value-container">
+                            <span>Placa:</span> <span class="card-value" id="vehicle-license-plate"></span>
+                        </div>
 
                         <div class="value-container">
-                            <span>Tipo de veículo:</span> <span class="card-value"> Carro</span>
+                            <span>Modelo:</span> <span class="card-value" id="vehicle-model"></span>
+                        </div>
+
+                        <div class="value-container">
+                            <span>Cor:</span> <span class="card-value" id="vehicle-colour"></span>
+                        </div>
+
+                        <div class="value-container">
+                            <span>Tipo de veículo:</span> <span class="card-value" id="vehicle-type"></span>
                         </div>
                     </div>
 
                     <div class="card">
                         <span class="card-name">Vaga</span>
 
-                        <div class="value-container"><span>Nome:</span> <span class="card-value">A-4</span></div>
+                        <div class="value-container">
+                            <span>Nome:</span> <span class="card-value" id="parking-spot"></span>
+                        </div>
 
-                        <div class="value-container"><span>Valor/Hora:</span> <span class="card-value">R$ 20,00</span></div>
+                        <div class="value-container">
+                            <span>Valor/Hora:</span> <span class="card-value" id="hour-price"></span>
+                        </div>
                     </div>
 
                     <div class="card">
                         <span class="card-name">Cliente</span>
 
-                        <div class="value-container"><span>Nome:</span> <span class="card-value">Sua mommy</span></div>
+                        <div class="value-container"><span>Nome:</span> <span class="card-value" id="customer"></span></div>
 
-                        <div class="value-container">
-                            <span>Email:</span> <span class="card-value">mommygotmilkers@gmail.com</span>
-                        </div>
+                        <div class="value-container"><span>Email:</span> <span class="card-value" id="email"></span></div>
 
-                        <div class="value-container">
-                            <span>Telefone:</span> <span class="card-value">(11) 99999-9999</span>
-                        </div>
+                        <div class="value-container"><span>Telefone:</span> <span class="card-value" id="phone"></span></div>
 
-                        <div class="value-container"><span>CPF:</span> <span class="card-value">062.665.190-54</span></div>
+                        <div class="value-container"><span>CPF:</span> <span class="card-value" id="cpf"></span></div>
                     </div>
                 </div>
 
-                <button class="primary-btn">Confirmar</button>
+                <button class="primary-btn" id="confirm">Confirmar</button>
             </div>
         </main>
     </body>
