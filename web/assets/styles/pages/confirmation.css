@@ -5,6 +5,7 @@ body {
 
 main {
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -19,23 +20,44 @@ main {
     flex-wrap: wrap;
 }
 
-.input-field {
+.data-container{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: clamp(50px, 4vw, 150px);
+}
+
+.timestamp, .total-price{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.timestamp span, .total-price span{
+    font-weight: bold;
+    font-size: 3.5rem;
+}
+
+.timestamp .data-value, .total-price .data-value{
+    color: var(--primary);
+}
+
+.value-container{
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    text-align: center;
+    max-width: inherit;
+}
+
+.card-value{
+    color: var(--primary);
 }
 
 label {
     font-size: 1.5rem;
-}
-
-select {
-    color: var(--primary);
-    background-color: var(--dark)!important;
-}
-
-option {
-    text-align: center;
 }
 
 .card-container{
@@ -61,7 +83,7 @@ option {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 25px;
 
     transition: scale 0.25s ease-out;
@@ -72,7 +94,7 @@ option {
 }
 
 .card .card-name {
-    font-size: clamp(1rem, 1.1vw, 1.1rem);
+    font-size: clamp(2rem, 2.1vw, 2rem);
     text-align: center;
     width: 80%;
 }
@@ -81,12 +103,11 @@ option {
     scale: 1.1;
 }
 
-.card-value{
+/* h6{
     color: var(--primary);
     font-size: clamp(20px, 3vw, 32px);
     position: relative;
-    font-weight: bold;
-}
+} */
 
 button {
     max-width: 300px;

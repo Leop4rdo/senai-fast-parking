@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="./assets/styles/header.css" />
         <link rel="stylesheet" href="./assets/styles/components/inputs.css" />
         <link rel="stylesheet" href="./assets/styles/components/table.css" />
+        <link rel="stylesheet" href="./assets/styles/pages/confirmation.css" />
 
         <!-- Google Material Icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -32,53 +33,82 @@
                 <img src="assets/logo.png" alt="" />
             </header>
 
-            <div class="row-container">
-                <div class="data-view">
-                    <h3>Confirme a saída</h3>
-                </div>
-            </div>
-
             <div class="content">
 
                 <div class="data-container">
 
-                    <label>Tempo de Estadia</label>
-                    <h3>00:00:00</h3>
+                    <div class="timestamp">
+                        <label>Tempo de Estadia</label>
+                        <span class="data-value">00:00:00</span>
+                    </div>
 
-                    <label>Valor Total</label>
-                    <h3>R$ 0.000,00</h3>
+                    <div class="total-price">
+                        <label>Valor Total</label>
+                        <span class="data-value">R$ 0.000,00</span>
+                    </div>
 
                 </div>
 
                 <div class="card-container">
                     <div class="card">
-                        <!-- <span class="material-icons">login</span> -->
                         <span class="card-name">Veículo</span>
-                        <h6>Placa: CKP-1021</h6>
-                        <h6>Modelo: Onix</h6>
-                        <h6>Cor: Vermelho</h6>
-                        <h6>Tipo de veículo: Carro</h6>
+                        
+                        <div class="value-container">
+                        <span>Placa:</span> <span class="card-value">CKP-1021</span>
+                        </div>
+
+                        <div class="value-container">
+                        <span>Modelo:</span> <span class="card-value">Onix</span>
+                        </div>
+                        
+                        <div class="value-container">
+                        <span>Cor:</span> <span class="card-value">Vermelho</span>
+                        </div>
+                        
+                        <div class="value-container">
+                        <span>Tipo de veículo:</span> <span class="card-value"> Carro</span>
+                        </div>
+
                     </div>
 
                     <div class="card">
-                        <!-- <span class="material-icons">logout</span> -->
                         <span class="card-name">Vaga</span>
-                        <h6>Nome:</h6>
-                        <h6>Valor/Hora: R$ 20,00</h6>
+                        
+                        <div class="value-container">
+                            <span>Nome:</span> <span class="card-value">A-4</span>
+                        </div>
+    
+                        <div class="value-container">
+                            <span>Valor/Hora:</span> <span class="card-value">R$ 20,00</span>
+                        </div>
+                    
                     </div>
 
                     <div class="card">
-                        <!-- <span class="material-icons">logout</span> -->
+                        
                         <span class="card-name">Cliente</span>
-                        <h6>Nome: Sua mommy</h6>
-                        <h6>Email: mommygotmilkers@gmail.com</h6>
-                        <h6>Telefone: (11) 999</h6>
-                        <h6>111.111.111</h6>
+
+                        <div class="value-container">
+                            <span>Nome:</span> <span class="card-value">Sua mommy</span>
+                        </div>
+    
+                        <div class="value-container">
+                            <span>Email:</span> <span class="card-value">mommygotmilkers@gmail.com</span>
+                        </div>
+
+                        <div class="value-container">
+                            <span>Telefone:</span> <span class="card-value">(11) 99999-9999</span>
+                        </div>
+    
+                        <div class="value-container">
+                            <span>CPF:</span> <span class="card-value">062.665.190-54</span>
+                        </div>
+
                     </div>
 
                 </div>
 
-                <button class="primary-btn" >Atualizar preços</button>
+                <button class="primary-btn" >Confirmar</button>
 
             </div>
 
