@@ -71,4 +71,11 @@ document.getElementById("confirm").addEventListener("click", async () => {
         },
         mode: "cors",
     };
+
+    const res = await fetch(`${baseURL}/vehicle-in-out/exit/${id}`, config);
+    const data = await res.json();
+
+    if (data.message) alert(data.message)
+    else alert("Saida realizada com sucesso!");
+    document.location ='in_out.html';
 });

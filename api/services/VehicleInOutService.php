@@ -39,7 +39,7 @@ class VehicleInOutService {
         // validating id
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
         
-        $res = $this->repository->find("id", $id);
+        $res = $this->repository->find("vehicle_in_out.id", $id);
 
         // if no data is found
         if (count($res) === 0) return array("message" => "data not found!", "status" => 404);
@@ -73,7 +73,7 @@ class VehicleInOutService {
         // validating id
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid id!", "status" => 400);
 
-        $inOut = $this->repository->find("id", $id)[0];
+        $inOut = $this->repository->find("vehicle_in_out.id", $id)[0];
         if ( count($inOut) === 0 ) return array("message" => "Vehicle in out does not exists!", "status" => 400);
         if ( @$inOut["exit_time"] != null ) return array("message" => "vehicle in out has already been terminated!", "status" => 400);
         
@@ -82,7 +82,7 @@ class VehicleInOutService {
         $inOut["exit_time"] = date("Y-m-d H:i:s");
 
         // getting hour price
-        $parkingSpot = $this->parkingSpotRepository->find("id", $inOut["parking_spot"]["id"]);
+        $parkingSpot = $this->parkingSpotRepository->find("parking_spot.id", $inOut["parking_spot"]["id"]);
         $typeRepository = new VehicleTypeRepository();
         
         // setting total price
@@ -100,32 +100,32 @@ class VehicleInOutService {
         // validating vehicle_id
         if (!is_numeric($id) || $id < 0) throw new Exception("Invalid vehicle!"); 
         
-        $vehicle = $this->vehicleRepository->find("id", $id);
+        $vehicle = $this->vehicleRepository->find("vehicle.id", $id);
         if ( count($vehicle) === 0 ) throw new Exception("Vehicle does not exists!");
 
         // validating if vehicle is already parked
         $isVehicleParked = $this->repository->find("vehicle_id", $id);
 
-        if ( count($isVehicleParked) > 0 && $isVehicleParked["exit_time"] ) throw new Exception("Vehicle is already parked!");
+        if ( count($isVehicleParked) > 0 && $isVehicleParked[0]["exit_time"] == null) throw new Exception("Vehicle is already parked!");
     }
 
     private function validateParkingSpot($id) {
         // validating parking_spot
         if (!is_numeric($id) || $id < 0) return array("message" => "Invalid parking spot!", "status" => 400);
 
-        $parkingSpot = $this->parkingSpotRepository->find("id", $id);
+        $parkingSpot = $this->parkingSpotRepository->find("parking_spot.id", $id);
         if ( count($parkingSpot) === 0 ) return array("message" => "Parking spot does not exists!", "status" => 400);
 
         // validating if vehicle is already parked
         $isParkingSpotInUse = $this->repository->find("parking_spot_id", $id);
 
-        if ( count($isParkingSpotInUse) > 0 && $isParkingSpotInUse["exit_time"] == null ) throw new Exception("Parking spot is already in use!");
+        if ( count($isParkingSpotInUse) > 0 && $isParkingSpotInUse[0]["exit_time"] == null ) throw new Exception("Parking spot is already in use!");
     }
 
     private function getHourPrice($parkingSpotId) {
-        $parkingSpot = $this->parkingSpotRepository->find("id", $parkingSpotId);
+        $parkingSpot = $this->parkingSpotRepository->find("parking_spot.id", $parkingSpotId);
         $typeRepository = new VehicleTypeRepository();
-        return $typeRepository->find("id", $parkingSpot["vehicle"])["type"];
+        return $typeRepository->find("id", $parkingSpot['type']['id'])['price'];
     }
 
     private function dateIntervalToHours($interval) {
@@ -144,8 +144,11 @@ class VehicleInOutService {
         $interval = date_diff($entranceTimeDate, $exitTimeDate);
         $totalHours = $this->dateIntervalToHours($interval);
 
-        if ($totalHours > 24) return $totalHours * $hourPrice * .5;
-        else if ($totalHours > 1) return $totalHours * $hourPrice;
-        else return $hourPrice *.5;
+        // if ($totalHours > 24) return $totalHours * $hourPrice * .5;
+        // else if ($totalHours > 1) return $totalHours * $hourPrice;
+        // else return $hourPrice *.5;
+    
+        if ($totalHours > 1) return $totalHours * ( $hourPrice * .75);
+        else return $hourPrice;
     }
 }

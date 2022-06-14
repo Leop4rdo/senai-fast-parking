@@ -61,7 +61,7 @@ class VehicleInOutRepository {
                     ON vehicle.id = vehicle_in_out.vehicle_id
                 INNER JOIN parking_spot
                     ON parking_spot.id = vehicle_in_out.parking_spot_id
-            WHERE vehicle_in_out.$param = $value;
+            WHERE $param = $value;
         ";
 
         $queryRes = $this->db->query($query);
@@ -90,7 +90,7 @@ class VehicleInOutRepository {
         $query = "UPDATE vehicle_in_out SET
                     exit_time = '".$body["exit_time"]."', 
                     total_price = '".$body["total_price"]."'
-                    where id = ".$body["id"].";";
+                    where vehicle_in_out.id = ".$body["id"].";";
         
         $queryRes = $this->db->query($query);
 
